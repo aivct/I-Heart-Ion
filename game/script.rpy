@@ -20,12 +20,39 @@ default option5 = None
 
 init python:
     
-    def encode(string):
-        return string
+    # Turns a string into an array of tokens
+    # TODO we must take care of punctuation at some point argh...
+    def tokenize(string):
+        return string.split()
+
+    # Turns an array of tokens back into a string
+    def detokenize(array):
+        return ' '.join(array)
+
+    # Encodes each word based on if we know it or not
+    def encodeWord(word):
+        if(encoding.words.get(word, False)):
+            return word 
+        else:
+            return hashWord(word)
     
+    # Turns a "word" into a ■ symbol
+    def hashWord(word):
+        return "■"
+
+    def encode(string):
+        tokens = tokenize(string)
+        tokens = map(encodeWord, tokens)
+        return detokenize(tokens)
+
+
+init python in encoding:
+    words = {
+        "you": True}
+
 init python in dialogue:
     _constant = True
-    stage1_ion = "How are you today? ■"
+    stage1_ion = "How are you today?"
     stage1_option1_1 = "Whatever"
     stage1_option1_2 = "Bad"
     stage1_option1_3 = "Good, how are you?"
