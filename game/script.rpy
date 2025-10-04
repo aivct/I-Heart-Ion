@@ -80,7 +80,7 @@ label start:
 
     # This ends the game.
 
-    return
+    return 
 
 label stage1_1:
     $ dialogueIon = f"{encode("How are you today?")}"
@@ -175,7 +175,7 @@ label s2:
             $LC += 1
             $EC += 3
 
-    $ s2_ion3 = f"{encode("I would really like to hear more later!")}"
+    $ s2_ion3 = f"{encode("I really want to hear more later")}"
 
     ion "[s2_ion3]" 
 
@@ -246,7 +246,7 @@ label s4a:
     ion "[s4a_ion1]" 
 
     $ s4a_op1_1 = f"{encode("Bad day")}"
-    $ s4a_op1_2 = f"{encode("No Im not")}"
+    $ s4a_op1_2 = f"{encode("No I am not")}"
     $ s4a_op1_3 = f"{encode("Purple shirt")}"
     $ s4a_op1_4 = f"{encode("I like you")}"
     $ s4a_op1_5 = f"{encode("I was rejected")}"
@@ -272,7 +272,7 @@ label s4a:
 
     ion "[s4a_ion2]" 
 
-    $ s4a_op2_1 = f"{encode("I dont think so")}"
+    $ s4a_op2_1 = f"{encode("I do not think so")}"
     $ s4a_op2_2 = f"{encode("Yes please")}"
     $ s4a_op2_3 = f"{encode("Poo poo")}"
     $ s4a_op2_4 = f"{encode("I suck")}"
@@ -331,7 +331,7 @@ label s4b:
 
     ion "[s4b_ion2]" 
 
-    $ s4b_op2_1 = f"{encode("I dont think so")}"
+    $ s4b_op2_1 = f"{encode("I do not think so")}"
     $ s4b_op2_2 = f"{encode("Yes please")}"
     $ s4b_op2_3 = f"{encode("Poo poo")}"
     $ s4b_op2_4 = f"{encode("I suck")}"
@@ -622,7 +622,7 @@ label s7a:
             $LC += 1
             $EC += 3
        
-    $ s7a_ion2 = f"{encode("You shouldnt wear that.")}"
+    $ s7a_ion2 = f"{encode("You should not wear that.")}"
 
     ion "[s7a_ion2]" 
 
@@ -649,7 +649,7 @@ label s7a:
             $LC += 2
             $EC += 2
 
-    $ s7a_ion3 = f"{encode("I just dont like it.")}"
+    $ s7a_ion3 = f"{encode("I do not like it.")}"
 
     ion "[s7a_ion3]" 
 
@@ -708,16 +708,75 @@ label s7b:
             $LC += 3
             $EC += 4
 
-    $ s7b_ion3 = f"{encode("Okay..")}"
+    $ s7b_ion3 = f"{encode("Okay...")}"
 
     ion "[s7b_ion3]" 
 
+label s7c:
+    $ s7c_ion1 = f"{encode("You look pretty today")}"
+    
+    ion "[s7c_ion1]" 
+
+    $ s7c_op1_1 = f"{encode("Yes, I am")}"
+    $ s7c_op1_2 = f"{encode("No, you")}"
+    $ s7c_op1_3 = f"{encode("New shirt")}"
+    $ s7c_op1_4 = f"{encode("Thank you")}"
+    $ s7c_op1_5 = f"{encode("Poo")}"
+
+    menu: 
+        "[s7c_op1_1]":
+            $LC += 4
+            $EC += 3
+        "[s7c_op1_2]":
+            $LC += 4
+            $EC += 5
+        "[s7c_op1_3]":
+            $LC += 3
+            $EC += 4
+        "[s7c_op1_4]":
+            $LC += 5
+            $EC += 5
+        "[s7c_op1_5]":
+            $LC += 1
+            $EC += 1
+       
+    $ s7c_ion2 = f"{encode("Is it for me?")}"
+
+    ion "[s7c_ion2]" 
+
+    $ s7c_op2_1 = f"{encode("Yes, I am")}"
+    $ s7c_op2_2 = f"{encode("No, it is not")}"
+    $ s7c_op2_3 = f"{encode("Like like")}"
+    $ s7c_op2_4 = f"{encode("Please")}"
+    $ s7c_op2_5 = f"{encode("A little")}"
+
+    menu: 
+        "[s7c_op2_1]":
+            $LC += 2
+            $EC += 5
+        "[s7c_op2_2]":
+            $LC += 5
+            $EC += 2
+        "[s7c_op2_3]":
+            $LC += 1
+            $EC += 3
+        "[s7c_op2_4]":
+            $LC += 3
+            $EC += 1
+        "[s7c_op2_5]":
+            $LC += 4
+            $EC += 4
+
+    $ s7c_ion3 = f"{encode("I like it")}"
+
+    ion "[s7c_ion3]" 
+
 label s8a:
-    $ s8a_ion1 = f"{encode("Im really busy tonight")}"
+    $ s8a_ion1 = f"{encode("I am really busy tonight")}"
     
     ion "[s8a_ion1]" 
 
-    $ s8a_op1_1 = f"{encode("Thats bad")}"
+    $ s8a_op1_1 = f"{encode("That is bad")}"
     $ s8a_op1_2 = f"{encode("Good")}"
     $ s8a_op1_3 = f"{encode("Poo poo")}"
     $ s8a_op1_4 = f"{encode("No")}"
@@ -767,7 +826,7 @@ label s8a:
             $LC += 5
             $EC += 4
 
-    $ s8a_ion3 = f"{encode("I dont really want to go.")}"
+    $ s8a_ion3 = f"{encode("I do not want to go.")}"
 
     ion "[s8a_ion3]" 
 
@@ -776,7 +835,7 @@ label s8b:
     
     ion "[s8b_ion1]"
 
-    $ s8b_op1_1 = f"{encode("Thats bad")}"
+    $ s8b_op1_1 = f"{encode("That is bad")}"
     $ s8b_op1_2 = f"{encode("Good")}"
     $ s8b_op1_3 = f"{encode("Poo poo")}"
     $ s8b_op1_4 = f"{encode("No")}"
@@ -830,15 +889,76 @@ label s8b:
 
     ion "[s8b_ion3]" 
 
+
+label s8c:
+    $ s8c_ion1 = f"{encode("I am not doing things tonight")}"
+    
+    ion "[s8c_ion1]"
+
+    $ s8c_op1_1 = f"{encode("That is good")}"
+    $ s8c_op1_2 = f"{encode("Bad")}"
+    $ s8c_op1_3 = f"{encode("Poo poo")}"
+    $ s8c_op1_4 = f"{encode("Yes")}"
+    $ s8c_op1_5 = f"{encode("I like you")}"
+
+    menu: 
+        "[s8c_op1_1]":
+            $LC += 5
+            $EC += 4
+        "[s8c_op1_2]":
+            $LC += 5
+            $EC += 1
+        "[s8c_op1_3]":
+            $LC += 3
+            $EC += 1
+        "[s8c_op1_4]":
+            $LC += 2
+            $EC += 4
+        "[s8c_op1_5]":
+            $LC += 1
+            $EC += 5
+       
+    $ s8c_ion2 = f"{encode("Bus-chan is handling the party")}"
+
+    ion "[s8c_ion2]" 
+
+    $ s8c_op2_1 = f"{encode("Party?")}"
+    $ s8c_op2_2 = f"{encode("Yes")}"
+    $ s8c_op2_3 = f"{encode("I want you")}"
+    $ s8c_op2_4 = f"{encode("Ride you friend")}"
+    $ s8c_op2_5 = f"{encode("I know")}"
+
+    menu: 
+        "[s8c_op2_1]":
+            $LC += 4
+            $EC += 2
+        "[s8c_op2_2]":
+            $LC += 5
+            $EC += 5
+        "[s8c_op2_3]":
+            $LC += 2
+            $EC += 4
+        "[s8c_op2_4]":
+            $LC += 2
+            $EC += 4
+        "[s8c_op2_5]":
+            $LC += 4
+            $EC += 4
+
+    $ s8c_ion3 = f"{encode("I would want to go")}"
+
+    ion "[s8c_ion3]"
+
+
 label s9a:
-    $ s9a_ion1 = f"{encode("Did you have a question for me?")}"
+    $ s9a_ion1 = f"{encode("Your stop now. Anything else?")}"
     
     ion "[s9a_ion1]" 
 
     $ s9a_op1_1 = f"{encode("Yes please")}"
     $ s9a_op1_2 = f"{encode("Hard no")}"
     $ s9a_op1_3 = f"{encode("Shirt")}"
-    $ s9a_op1_4 = f"{encode("I dont like you...")}"
+    $ s9a_op1_4 = f"{encode("I do not like you...")}"
     $ s9a_op1_5 = f"{encode("Whatever")}"
 
     menu: 
@@ -885,12 +1005,12 @@ label s9a:
             $LC += 1
             $EC += 2
 
-    $ s9a_ion3 = f"{encode("Not cool bro.")}"
+    $ s9a_ion3 = f"{encode("Not cool")}"
 
     ion "[s9a_ion3]" 
 
 label s9b:
-    $ s9b_ion1 = f"{encode("Did you have a question for me?")}"
+    $ s9b_ion1 = f"{encode("Your stop now. Anything else?")}"
     
     ion "[s9b_ion1]" 
 
@@ -944,23 +1064,84 @@ label s9b:
             $LC += 1
             $EC += 1
 
-    $ s9b_ion3 = f"{encode("Umm")}"
+    $ s9b_ion3 = f"{encode("Um")}"
 
     ion "[s9b_ion3]" 
 
+
+label s9c:
+    $ s9c_ion1 = f"{encode("Your stop now. Anything to ask me?")}"
+    
+    ion "[s9c_ion1]" 
+
+    $ s9c_op1_1 = f"{encode("Yes please")}"
+    $ s9c_op1_2 = f"{encode("Hard no")}"
+    $ s9c_op1_3 = f"{encode("Shirt")}"
+    $ s9c_op1_4 = f"{encode("I like you")}"
+    $ s9c_op1_5 = f"{encode("Whatever")}"
+
+    menu: 
+        "[s9c_op1_1]":
+            $LC += 5
+            $EC += 5
+        "[s9c_op1_2]":
+            $LC += 4
+            $EC += 1
+        "[s9c_op1_3]":
+            $LC += 1
+            $EC += 2
+        "[s9c_op1_4]":
+            $LC += 2
+            $EC += 5
+        "[s9c_op1_5]":
+            $LC += 3
+            $EC += 4
+       
+    $ s9c_ion2 = f"{encode("Well?")}"
+
+    ion "[s9c_ion2]"
+
+    $ s9c_op2_1 = f"{encode("Want to have food with me?")}"
+    $ s9c_op2_2 = f"{encode("You are pretty")}"
+    $ s9c_op2_3 = f"{encode("Please ride me?")}"
+    $ s9c_op2_4 = f"{encode("Poo shirt with me?")}"
+    $ s9c_op2_5 = f"{encode("Help")}"
+
+    menu: 
+        "[s9c_op2_1]":
+            $LC += 5
+            $EC += 5
+        "[s9c_op2_2]":
+            $LC += 3
+            $EC += 5
+        "[s9c_op2_3]":
+            $LC += 5
+            $EC += 4
+        "[s9c_op2_4]":
+            $LC += 2
+            $EC += 1
+        "[s9c_op2_5]":
+            $LC += 1
+            $EC += 1
+
+    $ s9c_ion3 = f"{encode("Awesome!")}"
+
+    ion "[s9c_ion3]"
+
+
 label badend:
-    $ ion_badend = f("You will never ride me again.")
+    $ ion_badend = "You will never ride me again."
 
     ion "[ion_badend]"
 
 
 label neutralend:
-    $ ion_badend = f("Maybe some other time")
+    $ ion_badend = "Maybe some other time"
 
     ion "[ion_badend]"
 
 
 label goodend:
-    $ ion_goodend = f("I would love to go out with you!")
+    $ ion_goodend = "I would love to go out with you!"
 
     ion "[ion_goodend]"
