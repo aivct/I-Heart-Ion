@@ -31,29 +31,32 @@ init python:
 
     # Encodes each word based on if we know it or not
     def encodeWord(word):
-        if(encoding.words.get(word, False)):
+        if(encoding.words.get(word, ("■", False))[1]):
             return word 
         else:
             return hashWord(word)
     
     # Turns a "word" into a ■ symbol
     def hashWord(word):
-        return "■"
+        return encoding.words.get(word, ("■", False))[0]
 
     def encode(string):
         tokens = tokenize(string)
         tokens = map(encodeWord, tokens)
         return detokenize(tokens)
 
+    def unlock(word):
+        encoding.update(word, False),
 
 init python in encoding:
     words = {
-        "you": True}
+        "you": ("♚", False)
+        ,"you": ("♚", False)}
 
 init python in dialogue:
     _constant = True
 
-define ion = Character("Eileen")
+define ion = Character("Ion-Chan")
 
 # The game starts here.
 
@@ -94,7 +97,6 @@ label stage1_1:
     #    ,("test choice",1)])
 
     menu:
-
         "You are pondering your dialogue choices but you realize you have no idea what she's saying... or what you're saying..."
 
         "[option1]":
@@ -157,7 +159,6 @@ label s2:
     $ s2_op2_5 = f"{encode("Boo Boo")}"
 
     menu: 
-        ""
         "[s2_op2_1]":
             $LC += 5
             $EC += 4
@@ -186,13 +187,12 @@ label s3:
     ion "[s3_ion1]"
 
     $ s3_op1_1 = f"{encode("Thank you")}"
-    #$ s3_op1_2 = f"{encode("No it's not")}"
+    $ s3_op1_2 = f"{encode("No it is not")}"
     $ s3_op1_3 = f"{encode("Shirt")}"
     $ s3_op1_4 = f"{encode("You poo")}"
     $ s3_op1_5 = f"{encode("I got it today")}"
 
     menu: 
-        "abc"
         "[s3_op1_1]":
             $LC += 5
             $EC += 5
@@ -220,7 +220,6 @@ label s3:
     $ s3_op2_5 = f"{encode("Today was hard")}"
 
     menu: 
-        ""
         "[s3_op2_1]":
             $LC += 5
             $EC += 4
@@ -253,7 +252,6 @@ label s4a:
     $ s4a_op1_5 = f"{encode("I was rejected")}"
 
     menu: 
-        ""
         "[s4a_op1_1]":
             $LC += 4
             $EC += 4
@@ -281,7 +279,6 @@ label s4a:
     $ s4a_op2_5 = f"{encode("More today")}"
 
     menu: 
-        ""
         "[s4a_op2_1]":
             $LC += 5
             $EC += 4
@@ -303,18 +300,17 @@ label s4a:
     ion "[s4a_ion3]" 
 
 label s4b:
-    #$ s4b_ion1 = f"{encode("You're nice today")}"
+    $ s4b_ion1 = f"{encode("You are nice today")}"
     
     ion "[s4b_ion1]" 
 
     $ s4b_op1_1 = f"{encode("Good day")}"
-    $ s4b_op1_2 = f"{encode("No Im not")}"
+    $ s4b_op1_2 = f"{encode("No I am not")}"
     $ s4b_op1_3 = f"{encode("Purple shirt")}"
     $ s4b_op1_4 = f"{encode("I like you")}"
     $ s4b_op1_5 = f"{encode("Yes I am")}"
 
     menu: 
-        ""
         "[s4b_op1_1]":
             $LC += 4
             $EC += 4
@@ -342,7 +338,6 @@ label s4b:
     $ s4b_op2_5 = f"{encode("More today")}"
 
     menu: 
-        ""
         "[s4b_op2_1]":
             $LC += 5
             $EC += 4
@@ -375,7 +370,6 @@ label s5a:
     $ s5a_op1_5 = f"{encode("Like you")}"
 
     menu: 
-        ""
         "[s5a_op1_1]":
             $LC += 5
             $EC += 3
@@ -392,7 +386,7 @@ label s5a:
             $LC += 2
             $EC += 4
        
-    $ s5a_ion2 = f"{encode("Is that why youre in a bad mood?")}"
+    $ s5a_ion2 = f"{encode("Is that why you are in a bad mood?")}"
 
     ion "[s5a_ion2]" 
 
@@ -403,7 +397,6 @@ label s5a:
     $ s5a_op2_5 = f"{encode("Sorry")}"
 
     menu: 
-        ""
         "[s5a_op2_1]":
             $LC += 5
             $EC += 4
@@ -436,7 +429,6 @@ label s5b:
     $ s5b_op1_5 = f"{encode("Like you")}"
 
     menu: 
-        ""
         "[s5b_op1_1]":
             $LC += 5
             $EC += 4
@@ -464,7 +456,6 @@ label s5b:
     $ s5b_op2_5 = f"{encode("You are nice")}"
 
     menu: 
-        ""
         "[s5b_op2_1]":
             $LC += 5
             $EC += 4
@@ -497,7 +488,6 @@ label s6a:
     $ s6a_op1_5 = f"{encode("I want food")}"
 
     menu: 
-        ""
         "[s6a_op1_1]":
             $LC += 4
             $EC += 4
@@ -525,7 +515,6 @@ label s6a:
     $ s6a_op2_5 = f"{encode("You are bad")}"
 
     menu: 
-        ""
         "[s6a_op2_1]":
             $LC += 5
             $EC += 1
@@ -542,7 +531,7 @@ label s6a:
             $LC += 4
             $EC += 1
 
-    $ s6a_ion3 = f"{encode("I guess thats my answer...")}"
+    $ s6a_ion3 = f"{encode("I guess that is my answer...")}"
 
     ion "[s6a_ion3]" 
 
@@ -558,7 +547,6 @@ label s6b:
     $ s6b_op1_5 = f"{encode("I want food")}"
 
     menu: 
-        ""
         "[s6b_op1_1]":
             $LC += 4
             $EC += 4
@@ -586,7 +574,6 @@ label s6b:
     $ s6b_op2_5 = f"{encode("You are good")}"
 
     menu: 
-        ""
         "[s6b_op2_1]":
             $LC += 5
             $EC += 4
@@ -619,7 +606,6 @@ label s7a:
     $ s7a_op1_5 = f"{encode("Poo")}"
 
     menu: 
-        ""
         "[s7a_op1_1]":
             $LC += 4
             $EC += 2
@@ -647,7 +633,6 @@ label s7a:
     $ s7a_op2_5 = f"{encode("A little")}"
 
     menu: 
-        ""
         "[s7a_op2_1]":
             $LC += 5
             $EC += 2
@@ -680,7 +665,6 @@ label s7b:
     $ s7b_op1_5 = f"{encode("Poo")}"
 
     menu: 
-        ""
         "[s7b_op1_1]":
             $LC += 4
             $EC += 3
@@ -708,7 +692,6 @@ label s7b:
     $ s7b_op2_5 = f"{encode("A little")}"
 
     menu: 
-        ""
         "[s7b_op2_1]":
             $LC += 5
             $EC += 3
@@ -741,7 +724,6 @@ label s8a:
     $ s8a_op1_5 = f"{encode("I like you")}"
 
     menu: 
-        ""
         "[s8a_op1_1]":
             $LC += 5
             $EC += 4
@@ -769,7 +751,6 @@ label s8a:
     $ s8a_op2_5 = f"{encode("I know")}"
 
     menu: 
-        ""
         "[s8a_op2_1]":
             $LC += 5
             $EC += 2
@@ -802,7 +783,6 @@ label s8b:
     $ s8b_op1_5 = f"{encode("I like you")}"
 
     menu: 
-        ""
         "[s8b_op1_1]":
             $LC += 5
             $EC += 4
@@ -830,7 +810,6 @@ label s8b:
     $ s8b_op2_5 = f"{encode("I know")}"
 
     menu: 
-        ""
         "[s8b_op2_1]":
             $LC += 4
             $EC += 2
@@ -863,7 +842,6 @@ label s9a:
     $ s9a_op1_5 = f"{encode("Whatever")}"
 
     menu: 
-        ""
         "[s9a_op1_1]":
             $LC += 5
             $EC += 4
@@ -891,7 +869,6 @@ label s9a:
     $ s9a_op2_5 = f"{encode("Help")}"
 
     menu: 
-        ""
         "[s9a_op2_1]":
             $LC += 5
             $EC += 2
@@ -924,7 +901,6 @@ label s9b:
     $ s9b_op1_5 = f"{encode("Whatever")}"
 
     menu: 
-        ""
         "[s9b_op1_1]":
             $LC += 5
             $EC += 5
@@ -952,7 +928,6 @@ label s9b:
     $ s9b_op2_5 = f"{encode("Help")}"
 
     menu: 
-        ""
         "[s9b_op2_1]":
             $LC += 5
             $EC += 4
