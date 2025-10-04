@@ -3,6 +3,10 @@
 # The init python statement runs Python at initialization time, before the game loads. 
 # Among other things, this can be used to define classes and functions, or to initialize styles, config variables, or persistent data.
 
+# TODO: Transcript Variable + Display
+# TODO: Graphix and Backgrounds
+# TODO: Sound
+
 default LC = 0
 default EC = 0
 
@@ -19,11 +23,13 @@ default option5 = None
 # name of the character.
 
 init python:
-    
+    import string
+    translator = str.maketrans('', '', string.punctuation)
+
     # Turns a string into an array of tokens
-    # TODO we must take care of punctuation at some point argh...
-    def tokenize(string):
-        return string.split()
+    # TODO we must take care of punctuation at some point argh...; it temporarily works for now by ignoring punctuations but that is no longterm solution.
+    def tokenize(text):
+        return text.translate(translator).split()
 
     # Turns an array of tokens back into a string
     def detokenize(array):
@@ -46,12 +52,14 @@ init python:
         return detokenize(tokens)
 
     def unlock(word):
-        encoding.update(word, False),
+        encoding.update(word, False)
 
 init python in encoding:
     words = {
-        "you": ("♚", False)
-        ,"you": ("♚", False)}
+        "how": ("■", False)
+        ,"are": ("Ҧ", False)
+        ,"you": ("▢", False)
+        ,"today": ("▣", False)}
 
 init python in dialogue:
     _constant = True
