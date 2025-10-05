@@ -413,6 +413,8 @@ label stage1_1:
 label s2:
     $ s2_ion1 = f"{encode("What did you do today?")}"
     
+    $ tempLC = LC
+
     ion "[s2_ion1]" 
 
     $ s2_op1_1 = f"{encode("Went to the market")}"
@@ -479,6 +481,8 @@ label s2:
 label s3:
     $ s3_ion1 = f"{encode("Your shirt is pretty")}"
     
+    $ tempLC = LC
+
     ion "[s3_ion1]"
 
     $ s3_op1_1 = f"{encode("Thank you")}"
@@ -546,6 +550,9 @@ label s3:
         jump s4a
 
 label s4a:
+
+    $ tempLC = LC
+
     $ s4a_ion1 = f"{encode("You seem upset today")}"
     
     ion "[s4a_ion1]" 
@@ -616,6 +623,8 @@ label s4a:
 
 label s4b:
     $ s4b_ion1 = f"{encode("You are nice today")}"
+
+    $ tempLC = LC
     
     ion "[s4b_ion1]" 
 
@@ -686,6 +695,8 @@ label s4b:
 label s5a:
     $ s5a_ion1 = f"{encode("Did you have food today?")}"
 
+    $ tempLC = LC
+
     ion "[s5a_ion1]" 
 
     $ s5a_op1_1 = f"{encode("Yes")}"
@@ -754,6 +765,8 @@ label s5a:
 
 label s5b:
     $ s5b_ion1 = f"{encode("Did you have food today?")}"
+
+    $ tempLC = LC
     
     ion "[s5b_ion1]" 
 
@@ -823,6 +836,8 @@ label s5b:
 
 label s6a:
     $ s6a_ion1 = f"{encode("I want to ask you something")}"
+
+    $ tempLC = LC
     
     ion "[s6a_ion1]" 
 
@@ -894,6 +909,8 @@ label s6a:
 
 label s6b:
     $ s6b_ion1 = f"{encode("I want to ask you something")}"
+
+    $ tempLC = LC
     
     ion "[s6b_ion1]" 
 
@@ -965,6 +982,8 @@ label s6b:
 
 label s7a:
     $ s7a_ion1 = f"{encode("You are not pretty")}"
+
+    $ tempLC = LC
     
     ion "[s7a_ion1]" 
 
@@ -1036,6 +1055,8 @@ label s7a:
 
 label s7b:
     $ s7b_ion1 = f"{encode("You look okay today")}"
+
+    $ tempLC = LC
     
     ion "[s7b_ion1]" 
 
@@ -1107,6 +1128,8 @@ label s7b:
 
 label s7c:
     $ s7c_ion1 = f"{encode("You look pretty today")}"
+
+    $ tempLC = LC
     
     ion "[s7c_ion1]" 
 
@@ -1178,6 +1201,8 @@ label s7c:
 
 label s8a:
     $ s8a_ion1 = f"{encode("I am really busy tonight")}"
+
+    $ tempLC = LC
     
     ion "[s8a_ion1]" 
 
@@ -1249,6 +1274,8 @@ label s8a:
 
 label s8b:
     $ s8b_ion1 = f"{encode("I might be busy tonight")}"
+
+    $ tempLC = LC
     
     ion "[s8b_ion1]"
 
@@ -1321,6 +1348,8 @@ label s8b:
 
 label s8c:
     $ s8c_ion1 = f"{encode("I am not doing things tonight")}"
+
+    $ tempLC = LC
     
     ion "[s8c_ion1]"
 
