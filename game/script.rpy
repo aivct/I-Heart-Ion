@@ -1803,7 +1803,7 @@ label s9b:
             $EC += 1
 
     hide ion concerned
-    show ion surprised2
+    show ion surprised2 at center, size_close
 
     $ s9b_ion3 = f"{encode("Um")}"
 
@@ -1932,6 +1932,6 @@ label goodend:
 
     "And now you can live happily ever after."
 
-    "You and Ion-Chan will be happy for the rest of your days."
+    "You and Ion-chan will be happy for the rest of your days."
 
     return 0
