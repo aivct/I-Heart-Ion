@@ -150,7 +150,7 @@ define config.save_directory = "IHeartIon-1759537835"
 ##
 ## The icon displayed on the taskbar or dock.
 
-define config.window_icon = "gui/window_icon.png"
+define config.window_icon = "images/logo.png"
 
 
 ## Build configuration #########################################################
