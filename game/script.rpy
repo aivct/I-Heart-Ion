@@ -116,7 +116,7 @@ init python:
 
         
         for i in range(int(newLC/2)):
-            toUnlock = list(encoding.words.keys())[randint(0, len(encoding.words))]
+            toUnlock = list(encoding.words.keys())[randint(0, len(encoding.words)-1)]
             if (not encoding.words[toUnlock][2]) and (not encoding.words[toUnlock][1]):
                 encoding.words.update({toUnlock: (encoding.words[toUnlock][0], True, False)})
             else:
@@ -432,7 +432,7 @@ label stage1_1:
     ion "[s2_ion3]"
 
 
-    "If you guess correct words, you may get some new ones revealed"
+    "If you guess correct words, you may get some new ones revealed."
 
     if LC-tempLC > 6:
         "You unlocked ▢ (you/your)!"
@@ -446,6 +446,8 @@ label stage1_1:
 label s2:
 
     scene station_frederick with fade
+
+    "8 stations left. Here we go."
 
     show ion smiling at center, size_close
 
@@ -522,6 +524,8 @@ label s2:
 label s3:
 
     scene station_kitchenercityhall with fade
+
+    "7 stations left. How many words can you unlock?."
 
     show ion smiling at center, size_close
 
@@ -605,6 +609,8 @@ label s4a:
 
     scene station_central with fade
 
+    "6 stations left. Pay attention to which symbols are repeated."
+
     show ion smiling at center, size_close
 
     $ s4a_ion1 = f"{encode("You seem upset today")}"
@@ -681,6 +687,8 @@ label s4a:
 
 label s4b:
     scene station_central with fade
+
+    "6 stations left. Pay attention to which symbols are repeated."
 
     show ion smiling at center, size_close
 
@@ -762,6 +770,8 @@ label s5a:
 
     scene station_grh with fade
 
+    "5 stations left. Ion-Chan's expressions can give clues."
+
     show ion smiling at center, size_close
 
     $ s5a_ion1 = f"{encode("Did you have food today?")}"
@@ -842,6 +852,8 @@ label s5b:
 
     scene station_grh with fade
 
+    "5 stations left. Ion-Chan's expressions can give clues."
+
     show ion smiling at center, size_close
 
     $ s5b_ion1 = f"{encode("Did you have food today?")}"
@@ -921,6 +933,8 @@ label s5b:
 label s6a:
 
     scene station_allen with fade
+
+    "4 stations left. How do you think this going?."
 
     show ion smiling at center, size_close
 
@@ -1004,6 +1018,8 @@ label s6b:
 
     scene station_allen with fade
 
+    "4 stations left. How do you think this going?."
+
     show ion smiling at center, size_close
 
     $ s6b_ion1 = f"{encode("I want to ask you something")}"
@@ -1085,6 +1101,8 @@ label s6b:
 label s7a:
 
     scene station_waterloopublicsquare2 with fade
+
+    "3 stations left. Some important words get permanently locked if you don't get them."
 
     show ion smiling at center, size_close
 
@@ -1168,6 +1186,8 @@ label s7b:
 
     scene station_waterloopublicsquare2 with fade
 
+    "3 stations left. Some important words get permanently locked if you don't get them."
+
     show ion smiling at center, size_close
 
     $ s7b_ion1 = f"{encode("You look okay today")}"
@@ -1249,6 +1269,8 @@ label s7b:
 label s7c:
 
     scene station_waterloopublicsquare2 with fade
+
+    "3 stations left. Some important words get permanently locked if you don't get them."
 
     show ion smiling at center, size_close
 
@@ -1332,6 +1354,8 @@ label s8a:
 
     scene station_waterloolaurierpark with fade
 
+    "2 stations left. How Ion-Chan feels is very important now."
+
     show ion smiling at center, size_close
 
     $ s8a_ion1 = f"{encode("I am really busy tonight")}"
@@ -1414,6 +1438,8 @@ label s8b:
 
     scene station_waterloolaurierpark with fade
 
+    "2 stations left. How Ion-Chan feels is very important now."
+
     show ion smiling at center, size_close
 
     $ s8b_ion1 = f"{encode("I might be busy tonight")}"
@@ -1495,6 +1521,8 @@ label s8b:
 label s8c:
 
     scene station_waterloolaurierpark with fade
+
+    "2 stations left. How Ion-Chan feels is very important now."
 
     show ion smiling at center, size_close
 
@@ -1579,6 +1607,8 @@ label s9a:
 
     scene station_uw with fade
 
+    "Last station. This is your chance."
+
     show ion smiling at center, size_close
 
     $ s9a_ion1 = f"{encode("Your stop now. Anything else?")}"
@@ -1648,6 +1678,8 @@ label s9a:
 
 label s9b:
     scene station_uw with fade
+
+    "Last station. This is your chance."
 
     show ion smiling at center, size_close
 
@@ -1720,6 +1752,8 @@ label s9b:
 label s9c:
 
     scene station_uw with fade
+
+    "Last station. This is your chance."
 
     show ion smiling at center, size_close
 
@@ -1802,7 +1836,7 @@ label badend:
 
 
 label neutralend:
-    $ ion_badend = "Maybe some other time"
+    $ ion_badend = "Maybe some other time."
 
     ion "[ion_badend]"
 
