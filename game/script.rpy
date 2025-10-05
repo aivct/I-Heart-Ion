@@ -81,6 +81,34 @@ label start:
     # directory.
 
     show eileen happy
+
+    "It's been a long day and a longer term."
+
+    "School, parents, friends, stress."
+
+    "It's getting to be too much."
+
+    "The only truly bright spot to look forward to was the Grand GDC Party."
+
+    "It's the BIGGEST and BESTEST night of the term (according to the posters)."
+
+    "The only problem?"
+
+    "It's the afternoon of the party, and you still have no date."
+
+    "You just spent the past six hours at the Kitchener market trying to convince your classmate to go with you."
+
+    "You got turned down cold."
+
+    "You only have one hope left."
+
+    "The one who has been there for you in every hour of need."
+
+    "The one who always makes sure you get where you need to be."
+
+    "The one who makes you feel truly seen."
+
+    "The one who will stop by regularly with lights and horns blaring to cheer you up."
     
     jump stage1_1
 
@@ -91,49 +119,117 @@ label start:
     return 
 
 label stage1_1:
-    $ dialogueIon = f"{encode("How are you today?")}"
 
-    ion "[dialogueIon]"
+    "Ion-Chan"
 
-    $ option1 = f"{encode("Whatever")}"
-    $ option2 = f"{encode("Bad")}"
-    $ option3 = f"{encode("Good, how are you?")}"
-    $ option4 = f"{encode("Purple skies")}"
-    $ option5 = f"{encode("Boo Boo")}"
+    $ s1_ion1 = f"{encode("How are you today?")}"
+
+    ion "[s1_ion1]"
+
+    "The problem is, you can never quite understand what she's saying."
+
+    "Because ION-chan only speaks Locomotish, not English."
+
+    "Most of the time, you would be willing to just nod along with what she says."
+
+    "But now, you are out of options."
+
+    "You MUST find a way to convince her to go to the party with you."
+
+    "Maybe you can use context clues to guess?"
+
+    $ s1_op1_1 = f"{encode("Whatever")}"
+    $ s1_op1_2 = f"{encode("Bad")}"
+    $ s1_op1_3 = f"{encode("Good, how are you?")}"
+    $ s1_op1_4 = f"{encode("Purple skies")}"
+    $ s1_op1_5 = f"{encode("Boo Boo")}"
 
     # renpy.display_menu([("You are pondering your dialogue choices but you realize you have no idea what she's saying... or what you're saying...",None)
     #    ,("test choice",1)])
 
     menu:
-        "You are pondering your dialogue choices but you realize you have no idea what she's saying... or what you're saying..."
+        #"You are pondering your dialogue choices but you realize you have no idea what she's saying... or what you're saying..."
 
-        "[option1]":
+        "[s1_op1_1]":
 
             $LC += 4
             $EC += 1
-        "[option2]":
+        "[s1_op1_2]":
 
             $LC += 4
             $EC += 2
-        "[option3]":
+        "[s1_op1_3]":
 
             $LC += 5            
             $EC += 5
-        "[option4]":
+        "[s1_op1_4]":
 
             $LC += 2
             $EC += 3
-        "[option5]":
+        "[s1_op1_5]":
 
             $LC += 1
             $EC += 3
+
+    "Did that go well?"
+
+    "Hard to say."
+
+    "Maybe if you keep trying to talk to her, you can figure out some words."
+
+    "You have 9 stops before U of W."
+
+    "And then you will meet your fate."
+
+    $ s1_ion2 = f"{encode("Glad to hear that")}"
+
+    ion "[s1_ion2]"
+
+    $ s1_op1_1 = f"{encode("Thank you")}"
+    $ s1_op1_2 = f"{encode("And you?")}"
+    $ s1_op1_3 = f"{encode("Hear what?")}"
+    $ s1_op1_4 = f"{encode("Poo Poo")}"
+    $ s1_op1_5 = f"{encode("Police")}"
+
+    # renpy.display_menu([("You are pondering your dialogue choices but you realize you have no idea what she's saying... or what you're saying...",None)
+    #    ,("test choice",1)])
+
+    menu:
+        #"You are pondering your dialogue choices but you realize you have no idea what she's saying... or what you're saying..."
+
+        "[s1_op1_1]":
+
+            $LC += 4
+            $EC += 1
+        "[s1_op1_2]":
+
+            $LC += 4
+            $EC += 2
+        "[s1_op1_3]":
+
+            $LC += 5            
+            $EC += 5
+        "[s1_op1_4]":
+
+            $LC += 2
+            $EC += 3
+        "[s1_op1_5]":
+
+            $LC += 1
+            $EC += 3
+
+    $ s2_ion3 = f"{encode("I have to go now")}"
+    
+    ion "[s2_ion3]"
+
+
 
 label s2:
     $ s2_ion1 = f"{encode("What did you do today?")}"
     
     ion "[s2_ion1]" 
 
-    $ s2_op1_1 = f"{encode("Went to the mall")}"
+    $ s2_op1_1 = f"{encode("Went to the market")}"
     $ s2_op1_2 = f"{encode("Thought about you")}"
     $ s2_op1_3 = f"{encode("Good, how are you?")}"
     $ s2_op1_4 = f"{encode("Bad")}"
@@ -1142,14 +1238,26 @@ label badend:
 
     ion "[ion_badend]"
 
+    "Oops."
+
+    "There goes my self-esteem."
+
 
 label neutralend:
     $ ion_badend = "Maybe some other time"
 
     ion "[ion_badend]"
 
+    "That... probably could have gone better."
+
+    "If only there was a way to do the afternoon all over again."
+
 
 label goodend:
     $ ion_goodend = "I would love to go out with you!"
 
     ion "[ion_goodend]"
+
+    "And now you can live happily ever after."
+
+    "You and ION-chan will be happy for the rest of your days."
