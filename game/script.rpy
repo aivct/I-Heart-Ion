@@ -4,8 +4,7 @@
 # Among other things, this can be used to define classes and functions, or to initialize styles, config variables, or persistent data.
 
 # TODO: Transcript Variable + Display
-# TODO: Graphix and Backgrounds
-# TODO: Sound
+# TODO: Known bug; unlock store not reset on newgame
 
 default LC = 0
 default EC = 0
@@ -361,22 +360,32 @@ label stage1_1:
 
             $LC += 4
             $EC += 1
+
+            show ion sad at center, size_close
         "[s1_op1_2]":
 
             $LC += 4
             $EC += 2
+
+            show ion sad at center, size_close
         "[s1_op1_3]":
 
             $LC += 5            
             $EC += 5
+
+            show ion happy2 at center, size_close
         "[s1_op1_4]":
 
             $LC += 2
             $EC += 3
+
+            show ion surprised at center, size_close
         "[s1_op1_5]":
 
             $LC += 1
             $EC += 3
+
+            show ion surprised at center, size_close
 
     "Did that go well?"
 
@@ -408,22 +417,32 @@ label stage1_1:
 
             $LC += 4
             $EC += 1
+
+            show ion happy at center, size_close
         "[s1_op1_2]":
 
             $LC += 4
             $EC += 2
+
+            show ion happy2 at center, size_close
         "[s1_op1_3]":
 
             $LC += 5            
             $EC += 5
+
+            show ion stern at center, size_close
         "[s1_op1_4]":
 
             $LC += 2
             $EC += 3
+
+            show ion stern at center, size_close
         "[s1_op1_5]":
 
             $LC += 1
             $EC += 3
+
+            show ion surprised2 at center, size_close
 
     $ s2_ion3 = f"{encode("I have to go now")}"
     
@@ -465,18 +484,28 @@ label s2:
         "[s2_op1_1]":
             $LC += 5
             $EC += 4
+
+            show ion happy2 at center, size_close
         "[s2_op1_2]":
             $LC += 5
             $EC += 2
+
+            show ion happy at center, size_close
         "[s2_op1_3]":
             $LC += 2
             $EC += 5
+
+            show ion happy2 at center, size_close
         "[s2_op1_4]":
             $LC += 3
             $EC += 2
+
+            show ion sad at center, size_close
         "[s2_op1_5]":
             $LC += 3
             $EC += 1
+
+            show ion concerned at center, size_close
 
     $ s2_ion2 = f"{encode("Were you with anyone?")}"
 
@@ -492,21 +521,28 @@ label s2:
         "[s2_op2_1]":
             $LC += 5
             $EC += 4
+
+            show ion happy2 at center, size_close
         "[s2_op2_2]":
             $LC += 4
             $EC += 2
+
+            show ion sad at center, size_close
         "[s2_op2_3]":
             $LC += 4
             $EC += 1
+
+            show ion stern at center, size_close
         "[s2_op2_4]":
             $LC += 2
             $EC += 3
+
+            show ion surprised2 at center, size_close
         "[s2_op2_5]":
             $LC += 1
             $EC += 3
 
-    hide ion smiling
-    show ion happy2 at center, size_close
+            show ion surprised2 at center, size_close
 
     $ s2_ion3 = f"{encode("I really want to hear more later")}"
 
@@ -544,21 +580,23 @@ label s3:
         "[s3_op1_1]":
             $LC += 5
             $EC += 5
+            show ion happy at center, size_close
         "[s3_op1_2]":
             $LC += 5
             $EC += 2
+            show ion sad at center, size_close
         "[s3_op1_3]":
             $LC += 2
             $EC += 3
+            show ion smiling at center, size_close
         "[s3_op1_4]":
             $LC += 1
             $EC += 1
+            show ion stern at center, size_close
         "[s3_op1_5]":
             $LC += 4
             $EC += 2
-    
-    hide ion smiling
-    show ion surprised2 at center, size_close
+            show ion happy2 at center, size_close
 
     $ s3_ion2 = f"{encode("Is it your favourite colour?")}"
 
@@ -574,21 +612,23 @@ label s3:
         "[s3_op2_1]":
             $LC += 5
             $EC += 4
+            show ion happy at center, size_close
         "[s3_op2_2]":
             $LC += 4
             $EC += 5
+            show ion smiling2 at center, size_close
         "[s3_op2_3]":
             $LC += 3
             $EC += 1
+            show ion sad at center, size_close
         "[s3_op2_4]":
             $LC += 1
             $EC += 1
+            show ion stern at center, size_close
         "[s3_op2_5]":
             $LC += 3
             $EC += 3
-
-    hide ion surprised2
-    show ion sad at center, size_close
+            show ion concerned at center, size_close
 
     $ s3_ion3 = f"{encode("This is hard")}"
 
@@ -632,21 +672,23 @@ label s4a:
         "[s4a_op1_1]":
             $LC += 4
             $EC += 4
+            show ion sad at center, size_close
         "[s4a_op1_2]":
             $LC += 5
             $EC += 1
+            show ion sad at center, size_close
         "[s4a_op1_3]":
             $LC += 1
             $EC += 2
+            show ion surprised2 at center, size_close
         "[s4a_op1_4]":
             $LC += 3
             $EC += 1
+            show ion surprised at center, size_close
         "[s4a_op1_5]":
             $LC += 4
             $EC += 5
-    
-    hide ion surprised
-    show ion concerned at center, size_close
+            show ion concerned at center, size_close
 
     $ s4a_ion2 = f"{encode("Are you always like this?")}"
 
@@ -662,21 +704,23 @@ label s4a:
         "[s4a_op2_1]":
             $LC += 5
             $EC += 4
+            show ion concerned at center, size_close
         "[s4a_op2_2]":
             $LC += 2
             $EC += 2
+            show ion surprised at center, size_close
         "[s4a_op2_3]":
             $LC += 1
             $EC += 1
+            show ion angry at center, size_close
         "[s4a_op2_4]":
             $LC += 4
             $EC += 3
+            show ion sad at center, size_close
         "[s4a_op2_5]":
             $LC += 4
             $EC += 5
-
-    hide ion concerned
-    show ion angry at center, size_close
+            show ion concerned at center, size_close
 
     $ s4a_ion3 = f"{encode("Cool.")}"
 
@@ -719,21 +763,24 @@ label s4b:
         "[s4b_op1_1]":
             $LC += 4
             $EC += 4
+            show ion smiling2 at center, size_close
         "[s4b_op1_2]":
             $LC += 5
             $EC += 2
+            show ion surprised2 at center, size_close
         "[s4b_op1_3]":
             $LC += 1
             $EC += 2
+            show ion surprised at center, size_close
         "[s4b_op1_4]":
             $LC += 3
             $EC += 5
+            show ion smiling at center, size_close
         "[s4b_op1_5]":
             $LC += 4
             $EC += 3
+            show ion smiling at center, size_close
     
-    hide ion smiling
-    show ion surprised at center, size_close
     $ s4b_ion2 = f"{encode("Are you always like this?")}"
 
     ion "[s4b_ion2]" 
@@ -748,21 +795,23 @@ label s4b:
         "[s4b_op2_1]":
             $LC += 5
             $EC += 4
+            show ion concerned at center, size_close
         "[s4b_op2_2]":
             $LC += 2
             $EC += 3
+            show ion smiling2 at center, size_close
         "[s4b_op2_3]":
             $LC += 1
             $EC += 1
+            show ion angry at center, size_close
         "[s4b_op2_4]":
             $LC += 4
             $EC += 2
+            show ion sad at center, size_close
         "[s4b_op2_5]":
             $LC += 4
             $EC += 3
-
-    hide ion surprised
-    show ion smiling at center, size_close
+            show ion smiling at center, size_close
 
     $ s4b_ion3 = f"{encode("Cool.")}"
 
@@ -806,18 +855,23 @@ label s5a:
         "[s5a_op1_1]":
             $LC += 5
             $EC += 3
+            show ion smiling at center, size_close
         "[s5a_op1_2]":
             $LC += 5
             $EC += 4
+            show ion concerned at center, size_close
         "[s5a_op1_3]":
             $LC += 1
             $EC += 1
+            show ion stern at center, size_close
         "[s5a_op1_4]":
             $LC += 1
             $EC += 2
+            show ion surprised at center, size_close
         "[s5a_op1_5]":
             $LC += 2
             $EC += 4
+            show ion surprised at center, size_close
     
     $ s5a_ion2 = f"{encode("Is that why you are in a bad mood?")}"
 
@@ -836,18 +890,23 @@ label s5a:
         "[s5a_op2_1]":
             $LC += 5
             $EC += 4
+            show ion sad at center, size_close
         "[s5a_op2_2]":
             $LC += 5
             $EC += 2
+            show ion sad at center, size_close
         "[s5a_op2_3]":
             $LC += 2
             $EC += 4
+            show ion surprised at center, size_close
         "[s5a_op2_4]":
             $LC += 1
             $EC += 1
+            show ion angry at center, size_close
         "[s5a_op2_5]":
             $LC += 4
             $EC += 5
+            show ion concerned at center, size_close
 
     $ s5a_ion3 = f"{encode("Maybe you should have food next time.")}"
 
@@ -891,18 +950,23 @@ label s5b:
         "[s5b_op1_1]":
             $LC += 5
             $EC += 4
+            show ion smiling at center, size_close
         "[s5b_op1_2]":
             $LC += 5
             $EC += 2
+            show ion sad at center, size_close
         "[s5b_op1_3]":
             $LC += 1
             $EC += 1
+            show ion angry at center, size_close
         "[s5b_op1_4]":
             $LC += 1
             $EC += 3
+            show ion surprised at center, size_close
         "[s5b_op1_5]":
             $LC += 2
             $EC += 5
+            show ion surprised at center, size_close
     
     $ s5b_ion2 = f"{encode("Was it your favourite?")}"
 
@@ -918,23 +982,25 @@ label s5b:
         "[s5b_op2_1]":
             $LC += 5
             $EC += 4
+            show ion happy2 at center, size_close
         "[s5b_op2_2]":
             $LC += 5
             $EC += 4
+            show ion sad at center, size_close
         "[s5b_op2_3]":
             $LC += 3
             $EC += 3
+            show ion smiling at center, size_close
         "[s5b_op2_4]":
             $LC += 1
             $EC += 2
+            show ion angry at center, size_close
         "[s5b_op2_5]":
             $LC += 2
             $EC += 5
+            show ion happy at center, size_close
 
     $ s5b_ion3 = f"{encode("It would be good to have food sometime.")}"
-
-    hide ion smiling
-    show ion happy at center, size_close
 
     ion "[s5b_ion3]" 
 
@@ -976,18 +1042,23 @@ label s6a:
         "[s6a_op1_1]":
             $LC += 4
             $EC += 4
+            show ion smiling at center, size_close
         "[s6a_op1_2]":
             $LC += 4
             $EC += 2
+            show ion stern at center, size_close
         "[s6a_op1_3]":
             $LC += 5
             $EC += 4
+            show ion smiling2 at center, size_close
         "[s6a_op1_4]":
             $LC += 1
             $EC += 1
+            show ion angry at center, size_close
         "[s6a_op1_5]":
             $LC += 3
             $EC += 2
+            show ion concerned at center, size_close
     
     hide ion surprised2
     show ion concerned at center, size_close
@@ -1006,21 +1077,23 @@ label s6a:
         "[s6a_op2_1]":
             $LC += 5
             $EC += 1
+            show ion sad at center, size_close
         "[s6a_op2_2]":
             $LC += 5
             $EC += 4
+            show ion smiling2 at center, size_close
         "[s6a_op2_3]":
             $LC += 3
             $EC += 2
+            show ion angry at center, size_close
         "[s6a_op2_4]":
             $LC += 3
             $EC += 2
+            show ion surprised at center, size_close
         "[s6a_op2_5]":
             $LC += 4
             $EC += 1
-
-    hide ion concerned
-    show ion sad at center, size_close
+            show ion angry at center, size_close
 
     $ s6a_ion3 = f"{encode("I guess that is my answer...")}"
 
@@ -1066,18 +1139,23 @@ label s6b:
         "[s6b_op1_1]":
             $LC += 4
             $EC += 4
+            show ion smiling at center, size_close
         "[s6b_op1_2]":
             $LC += 4
             $EC += 1
+            show ion stern at center, size_close
         "[s6b_op1_3]":
             $LC += 5
             $EC += 5
+            show ion smiling2 at center, size_close
         "[s6b_op1_4]":
             $LC += 1
             $EC += 1
+            show ion angry at center, size_close
         "[s6b_op1_5]":
             $LC += 3
             $EC += 2
+            show ion concerned at center, size_close
 
     hide ion surprised2
     show ion concerned at center, size_close
@@ -1095,22 +1173,25 @@ label s6b:
         "[s6b_op2_1]":
             $LC += 5
             $EC += 4
+            show ion happy at center, size_close
         "[s6b_op2_2]":
             $LC += 5
             $EC += 1
+            show ion sad at center, size_close
         "[s6b_op2_3]":
             $LC += 3
             $EC += 1
+            show ion angry at center, size_close
         "[s6b_op2_4]":
             $LC += 3
             $EC += 2
+            show ion smiling at center, size_close
         "[s6b_op2_5]":
             $LC += 4
             $EC += 5
+            show ion smiling2 at center, size_close
 
     $ s6b_ion3 = f"{encode("I guess thats my answer...")}"
-    hide ion concerned
-    show ion happy2 at center, size_close
     ion "[s6b_ion3]" 
 
     hide ion happy2
@@ -1153,18 +1234,23 @@ label s7a:
         "[s7a_op1_1]":
             $LC += 4
             $EC += 2
+            show ion stern at center, size_close
         "[s7a_op1_2]":
             $LC += 2
             $EC += 1
+            show ion angry at center, size_close
         "[s7a_op1_3]":
             $LC += 3
             $EC += 4
+            show ion stern at center, size_close
         "[s7a_op1_4]":
             $LC += 4
             $EC += 3
+            show ion surprised at center, size_close
         "[s7a_op1_5]":
             $LC += 1
             $EC += 3
+            show ion angry at center, size_close
     
     $ s7a_ion2 = f"{encode("You should not wear that.")}"
 
@@ -1180,20 +1266,24 @@ label s7a:
         "[s7a_op2_1]":
             $LC += 5
             $EC += 2
+            show ion stern at center, size_close
         "[s7a_op2_2]":
             $LC += 2
             $EC += 2
+            show ion surprised at center, size_close
         "[s7a_op2_3]":
             $LC += 1
             $EC += 3
+            show ion stern at center, size_close
         "[s7a_op2_4]":
             $LC += 3
             $EC += 4
+            show ion concerned at center, size_close
         "[s7a_op2_5]":
             $LC += 2
             $EC += 2
-    hide ion stern
-    show ion angry at center, size_close
+            show ion surprised at center, size_close
+
     $ s7a_ion3 = f"{encode("I do not like it.")}"
 
     ion "[s7a_ion3]" 
@@ -1238,18 +1328,23 @@ label s7b:
         "[s7b_op1_1]":
             $LC += 4
             $EC += 3
+            show ion happy2 at center, size_close
         "[s7b_op1_2]":
             $LC += 2
             $EC += 3
+            show ion surprised at center, size_close
         "[s7b_op1_3]":
             $LC += 4
             $EC += 4
+            show ion smiling at center, size_close
         "[s7b_op1_4]":
             $LC += 5
             $EC += 4
+            show ion smiling2 at center, size_close
         "[s7b_op1_5]":
             $LC += 1
             $EC += 2
+            show ion surprised at center, size_close
     
     hide ion surprised
     show ion stern at center, size_close
@@ -1268,23 +1363,25 @@ label s7b:
         "[s7b_op2_1]":
             $LC += 5
             $EC += 3
+            show ion smiling at center, size_close
         "[s7b_op2_2]":
             $LC += 2
             $EC += 2
+            show ion concerned at center, size_close
         "[s7b_op2_3]":
             $LC += 1
             $EC += 3
+            show ion smiling at center, size_close
         "[s7b_op2_4]":
             $LC += 3
             $EC += 3
+            show ion surprised2 at center, size_close
         "[s7b_op2_5]":
             $LC += 3
             $EC += 4
+            show ion surprised at center, size_close
 
     $ s7b_ion3 = f"{encode("Okay...")}"
-
-    hide ion stern
-    show ion sad at center, size_close
 
     ion "[s7b_ion3]" 
 
@@ -1328,18 +1425,23 @@ label s7c:
         "[s7c_op1_1]":
             $LC += 4
             $EC += 3
+            show ion smiling2 at center, size_close
         "[s7c_op1_2]":
             $LC += 4
             $EC += 5
+            show ion smiling at center, size_close
         "[s7c_op1_3]":
             $LC += 3
             $EC += 4
+            show ion happy2 at center, size_close
         "[s7c_op1_4]":
             $LC += 5
             $EC += 5
+            show ion happy at center, size_close
         "[s7c_op1_5]":
             $LC += 1
             $EC += 3
+            show ion smiling at center, size_close
     
     hide ion smiling
     show ion concerned at center, size_close
@@ -1358,20 +1460,24 @@ label s7c:
         "[s7c_op2_1]":
             $LC += 2
             $EC += 5
+            show ion happy at center, size_close
         "[s7c_op2_2]":
             $LC += 5
             $EC += 2
+            show ion surprised at center, size_close
         "[s7c_op2_3]":
             $LC += 1
             $EC += 3
+            show ion smiling at center, size_close
         "[s7c_op2_4]":
             $LC += 3
             $EC += 1
+            show ion surprised at center, size_close
         "[s7c_op2_5]":
             $LC += 4
             $EC += 4
-    hide ion concerned
-    show ion happy at center, size_close
+            show ion smiling at center, size_close
+
     $ s7c_ion3 = f"{encode("I like it")}"
 
     ion "[s7c_ion3]" 
@@ -1416,18 +1522,23 @@ label s8a:
         "[s8a_op1_1]":
             $LC += 5
             $EC += 4
+            show ion sad at center, size_close
         "[s8a_op1_2]":
             $LC += 5
             $EC += 1
+            show ion stern at center, size_close
         "[s8a_op1_3]":
             $LC += 3
             $EC += 3
+            show ion angry at center, size_close
         "[s8a_op1_4]":
             $LC += 2
             $EC += 1
+            show ion stern at center, size_close
         "[s8a_op1_5]":
             $LC += 1
             $EC += 3
+            show ion sad at center, size_close
     
     hide ion surprised
     show ion concerned at center, size_close
@@ -1446,21 +1557,23 @@ label s8a:
         "[s8a_op2_1]":
             $LC += 5
             $EC += 2
+            show ion sad at center, size_close
         "[s8a_op2_2]":
             $LC += 4
             $EC += 4
+            show ion sad at center, size_close
         "[s8a_op2_3]":
             $LC += 2
             $EC += 2
+            show ion sad at center, size_close
         "[s8a_op2_4]":
             $LC += 1
             $EC += 1
+            show ion surprised2 at center, size_close
         "[s8a_op2_5]":
             $LC += 5
             $EC += 4
-
-    hide ion concerned
-    show ion surprised at center, size_close
+            show ion sad at center, size_close
 
     $ s8a_ion3 = f"{encode("I do not want to go.")}"
 
@@ -1506,18 +1619,23 @@ label s8b:
         "[s8b_op1_1]":
             $LC += 5
             $EC += 4
+            show ion sad at center, size_close
         "[s8b_op1_2]":
             $LC += 5
             $EC += 1
+            show ion stern at center, size_close
         "[s8b_op1_3]":
             $LC += 3
             $EC += 2
+            show ion angry at center, size_close
         "[s8b_op1_4]":
             $LC += 2
             $EC += 1
+            show ion stern at center, size_close
         "[s8b_op1_5]":
             $LC += 1
             $EC += 4
+            show ion smiling at center, size_close
     
     hide ion surprised
     show ion concerned at center, size_close
@@ -1536,18 +1654,23 @@ label s8b:
         "[s8b_op2_1]":
             $LC += 4
             $EC += 2
+            show ion surprised at center, size_close
         "[s8b_op2_2]":
             $LC += 5
             $EC += 4
+            show ion smiling at center, size_close
         "[s8b_op2_3]":
             $LC += 2
             $EC += 3
+            show ion sad at center, size_close
         "[s8b_op2_4]":
             $LC += 1
             $EC += 3
+            show ion surprised2 at center, size_close
         "[s8b_op2_5]":
             $LC += 5
             $EC += 4
+            show ion sad at center, size_close
 
     $ s8b_ion3 = f"{encode("Who would want to go?")}"
 
@@ -1593,18 +1716,23 @@ label s8c:
         "[s8c_op1_1]":
             $LC += 5
             $EC += 4
+            show ion happy at center, size_close
         "[s8c_op1_2]":
             $LC += 5
             $EC += 1
+            show ion angry at center, size_close
         "[s8c_op1_3]":
             $LC += 3
             $EC += 3
+            show ion surprised at center, size_close
         "[s8c_op1_4]":
             $LC += 2
             $EC += 4
+            show ion smiling at center, size_close
         "[s8c_op1_5]":
             $LC += 1
             $EC += 5
+            show ion happy2 at center, size_close
     
     hide ion smiling
     show ion happy at center, size_close
@@ -1623,21 +1751,23 @@ label s8c:
         "[s8c_op2_1]":
             $LC += 4
             $EC += 2
+            show ion smiling at center, size_close
         "[s8c_op2_2]":
             $LC += 5
             $EC += 5
+            show ion smiling at center, size_close
         "[s8c_op2_3]":
             $LC += 2
             $EC += 4
+            show ion happy at center, size_close
         "[s8c_op2_4]":
             $LC += 2
             $EC += 4
+            show ion smiling2 at center, size_close
         "[s8c_op2_5]":
             $LC += 4
             $EC += 4
-
-    hide ion happy
-    show ion happy2 at center, size_close
+            show ion happy2 at center, size_close
 
     $ s8c_ion3 = f"{encode("I would want to go")}"
 
@@ -1681,18 +1811,23 @@ label s9a:
         "[s9a_op1_1]":
             $LC += 5
             $EC += 4
+            show ion surprised at center, size_close
         "[s9a_op1_2]":
             $LC += 4
             $EC += 1
+            show ion stern at center, size_close
         "[s9a_op1_3]":
             $LC += 1
             $EC += 2
+            show ion surprised at center, size_close
         "[s9a_op1_4]":
             $LC += 2
             $EC += 1
+            show ion angry at center, size_close
         "[s9a_op1_5]":
             $LC += 3
             $EC += 3
+            show ion stern at center, size_close
     
     hide ion smiling 
     show ion concerned at center, size_close
@@ -1711,21 +1846,23 @@ label s9a:
         "[s9a_op2_1]":
             $LC += 5
             $EC += 2
+            show ion stern at center, size_close
         "[s9a_op2_2]":
             $LC += 3
             $EC += 4
+            show ion smiling at center, size_close
         "[s9a_op2_3]":
             $LC += 5
             $EC += 1
+            show ion surprised2 at center, size_close
         "[s9a_op2_4]":
             $LC += 2
             $EC += 1
+            show ion surprised at center, size_close
         "[s9a_op2_5]":
             $LC += 1
             $EC += 2
-
-    hide ion concerned 
-    show ion angry at center, size_close
+            show ion concerned at center, size_close
 
     $ s9a_ion3 = f"{encode("Not cool")}"
 
@@ -1759,18 +1896,23 @@ label s9b:
         "[s9b_op1_1]":
             $LC += 5
             $EC += 5
+            show ion concerned at center, size_close
         "[s9b_op1_2]":
             $LC += 4
             $EC += 1
+            show ion stern at center, size_close
         "[s9b_op1_3]":
             $LC += 1
             $EC += 2
+            show ion surprised at center, size_close
         "[s9b_op1_4]":
             $LC += 2
             $EC += 3
+            show ion sad at center, size_close
         "[s9b_op1_5]":
             $LC += 3
             $EC += 3
+            show ion stern at center, size_close
     
     hide ion smiling 
     show ion concerned at center, size_close
@@ -1789,21 +1931,23 @@ label s9b:
         "[s9b_op2_1]":
             $LC += 5
             $EC += 4
+            show ion smiling at center, size_close
         "[s9b_op2_2]":
             $LC += 3
             $EC += 5
+            show ion smiling at center, size_close
         "[s9b_op2_3]":
             $LC += 5
             $EC += 3
+            show ion surprised2 at center, size_close
         "[s9b_op2_4]":
             $LC += 2
             $EC += 2
+            show ion surprised at center, size_close
         "[s9b_op2_5]":
             $LC += 1
             $EC += 1
-
-    hide ion concerned
-    show ion surprised2 at center, size_close
+            show ion concerned at center, size_close
 
     $ s9b_ion3 = f"{encode("Um")}"
 
@@ -1838,18 +1982,23 @@ label s9c:
         "[s9c_op1_1]":
             $LC += 5
             $EC += 5
+            show ion happy2 at center, size_close
         "[s9c_op1_2]":
             $LC += 4
             $EC += 1
+            show ion surprised2 at center, size_close
         "[s9c_op1_3]":
             $LC += 1
             $EC += 2
+            show ion surprised at center, size_close
         "[s9c_op1_4]":
             $LC += 2
             $EC += 5
+            show ion happy at center, size_close
         "[s9c_op1_5]":
             $LC += 3
             $EC += 4
+            show ion stern at center, size_close
     
     hide ion smiling 
     show ion concerned at center, size_close
@@ -1868,21 +2017,23 @@ label s9c:
         "[s9c_op2_1]":
             $LC += 5
             $EC += 5
+            show ion smiling2 at center, size_close
         "[s9c_op2_2]":
             $LC += 3
             $EC += 5
+            show ion smiling at center, size_close
         "[s9c_op2_3]":
             $LC += 5
             $EC += 4
+            show ion surprised2 at center, size_close
         "[s9c_op2_4]":
             $LC += 2
             $EC += 2
+            show ion smiling at center, size_close
         "[s9c_op2_5]":
             $LC += 1
             $EC += 1
-    
-    hide ion concerned
-    show ion happy at center, size_close
+            show ion concerned at center, size_close
 
     $ s9c_ion3 = f"{encode("Awesome!")}"
 
