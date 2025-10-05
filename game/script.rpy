@@ -7,6 +7,8 @@
 # TODO: Graphix and Backgrounds
 # TODO: Sound
 
+
+
 default LC = 0
 default EC = 0
 
@@ -24,6 +26,7 @@ default option5 = None
 
 init python:
     import string
+    from random import randint
     translator = str.maketrans('', '', string.punctuation)
 
     # Turns a string into an array of tokens
@@ -37,22 +40,90 @@ init python:
 
     # Encodes each word based on if we know it or not
     def encodeWord(word):
-        if(encoding.words.get(word, ("??", False))[1]):
+        if(encoding.words.get(word, ("??", False, False))[1]):
             return word 
         else:
             return hashWord(word)
     
-    # Turns a "word" into a ■ symbol
+    # Turns a "word" into a ■ symbol,
     def hashWord(word):
-        return encoding.words.get(word, ("??", False))[0]
+        return encoding.words.get(word, ("??", False, False))[0]
 
     def encode(string):
         tokens = tokenize(string)
         tokens = map(encodeWord, tokens)
         return detokenize(tokens)
 
-    def unlock(word):
-        encoding.update(word, False)
+    def unlock(stage, newLC):
+        if newLC > 6:
+            if stage == 1:
+                
+                encoding.words.update({"you": ("▢", True, True)})
+                encoding.words.update({"your": ("▢", True, True)})
+            elif stage == 2:
+                
+                encoding.words.update({"today": ("▣", True, True)})
+                encoding.words.update({"day": ("▣", True, True)})
+                encoding.words.update({"tonight": ("▣", True, True)})
+
+                encoding.words.update({"more": ("✵", True, True)})
+                encoding.words.update({"really": ("✵", True, True)})
+                encoding.words.update({"better": ("✵", True, True)})
+            elif stage == 3:
+                
+                encoding.words.update({"i": ("♠", True, True)})
+                encoding.words.update({"my": ("♠", True, True)})
+                encoding.words.update({"me": ("♠", True, True)})
+                encoding.words.update({"who": ("♠", True, True)})
+
+                encoding.words.update({"hard": ("⮝", True, True)})
+            elif stage == 4:
+                
+                encoding.words.update({"yes": ("⬢", True, True)})
+
+                encoding.words.update({"no": ("♥", True, True)})
+                encoding.words.update({"not": ("♥", True, True)})
+                encoding.words.update({"none": ("♥", True, True)})
+                encoding.words.update({"never": ("♥", True, True)})
+
+            elif stage == 5:
+                
+                encoding.words.update({"good": ("▬", True, True)})
+                encoding.words.update({"favourite": ("▬", True, True)})
+                encoding.words.update({"cool": ("▬", True, True)})
+                encoding.words.update({"awesome": ("▬", True, True)})
+
+                encoding.words.update({"bad": ("¤", True, True)})
+                encoding.words.update({"suck": ("¤", True, True)})
+
+            elif stage == 6:
+                
+                encoding.words.update({"like": ("✪", True, True)})
+
+                encoding.words.update({"food": ("♜", True, True)})
+            
+            elif stage == 7:
+                
+                encoding.words.update({"pretty": ("➽", True, True)})
+
+                encoding.words.update({"please": ("♛", True, True)})
+
+            elif stage == 8:
+                
+                encoding.words.update({"want": ("◢", True, True)})
+
+                encoding.words.update({"ride": ("Ѫ", True, True)})
+
+        else:
+            for i in range(newLC/2):
+                wordList = encoding.words.keys()
+                toUnlock = wordList[randint(0, wordList.len())]
+                toUnlockVal = encoding.words.get(toUnlock)
+                if (not toUnlockVal[2]) and (not toUnlockVal[1]):
+                    encoding.words.update({toUnlock: (toUnlockVal[0], True, False)})
+                else:
+                    i-= 1
+
 
 init python in encoding:
     words = {
@@ -80,13 +151,14 @@ init python in encoding:
         "glad": ("▰", False, False),
         "to": ("▱", False, False),
         "hear": ("▲", False, False),
+        "this": ("△", False, False),
         "that": ("△", False, False),
         "thank": ("◆", False, False),
         "and": ("◇", False, False),
         "what": ("◈", False, False),
         "poo": ("◉", False, False),
         "police": ("◊", False, False),
-        "I": ("♠", False, True),
+        "i": ("♠", False, True),
         "my": ("♠", False, True),
         "me": ("♠", False, True),
         "who": ("♠", False, True),
@@ -105,6 +177,8 @@ init python in encoding:
         "know": ("◓", False, False),
         "about": ("◘", False, False),
         "rejected": ("◙", False, False),
+        "is": ("Ʃ", False, False),
+        "was": ("Ʃ", False, False),
         "with": ("◩", False, False),
         "anyone": ("◨", False, False),
         "friends": ("◭", False, False),
@@ -128,7 +202,7 @@ init python in encoding:
         "got": ("⧒", False, False),
         "colour": ("⧪", False, False),
         "yes": ("⬢", False, True),
-        "hard": ("⮝", False, False),
+        "hard": ("⮝", False, True),
         "seem": ("⯂", False, False),
         "upset": ("⨂", False, False),
         "always": ("❖", False, False),
@@ -240,6 +314,8 @@ label stage1_1:
 
     "Maybe you can use context clues to guess?"
 
+    $ tempLC = LC
+
     $ s1_op1_1 = f"{encode("Whatever")}"
     $ s1_op1_2 = f"{encode("Bad")}"
     $ s1_op1_3 = f"{encode("Good, how are you?")}"
@@ -325,6 +401,14 @@ label stage1_1:
     ion "[s2_ion3]"
 
 
+    "If you guess correct words, you may get some new ones revealed"
+
+    if LC-tempLC > 6:
+        "You unlocked ▢ (you/your)!"
+
+    $ dummy = unlock(1, LC-tempLC)
+
+
 
 label s2:
     $ s2_ion1 = f"{encode("What did you do today?")}"
@@ -361,7 +445,7 @@ label s2:
     $ s2_op2_1 = f"{encode("My friends")}"
     $ s2_op2_2 = f"{encode("Not a date")}"
     $ s2_op2_3 = f"{encode("None of your business")}"
-    $ s2_op2_4 = f"{encode("I love you")}"
+    $ s2_op2_4 = f"{encode("I like you")}"
     $ s2_op2_5 = f"{encode("Boo Boo")}"
 
     menu: 
@@ -385,10 +469,15 @@ label s2:
 
     ion "[s2_ion3]" 
 
+    if LC-tempLC > 6:
+        "You unlocked ▣ (today/day/tonight) and ✵ (more/really/better)!"
+
+    $ dummy = unlock(2, LC-tempLC)
+
 
 
 label s3:
-    $ s3_ion1 = f"{encode("Your shirt is cute")}"
+    $ s3_ion1 = f"{encode("Your shirt is pretty")}"
     
     ion "[s3_ion1]"
 
@@ -415,7 +504,7 @@ label s3:
             $LC += 4
             $EC += 2
        
-    $ s3_ion2 = f"{encode("Is it your favorite colour?")}"
+    $ s3_ion2 = f"{encode("Is it your favourite colour?")}"
 
     ion "[s3_ion2]" 
 
@@ -445,6 +534,11 @@ label s3:
     $ s3_ion3 = f"{encode("This is hard")}"
 
     ion "[s3_ion3]" 
+
+    if LC-tempLC > 6:
+        "You unlocked ♠ (I/my/me/who) and ⮝ (hard)!"
+
+    $ dummy = unlock(3, LC-tempLC)
 
     if EC > 18:
         jump s4b
@@ -508,7 +602,12 @@ label s4a:
 
     $ s4a_ion3 = f"{encode("Cool.")}"
 
-    ion "[s4a_ion3]" 
+    ion "[s4a_ion3]"
+
+    if LC-tempLC > 6:
+        "You unlocked ⬢ (yes) and ♥ (no/not/none/never)!"
+
+    $ dummy = unlock(4, LC-tempLC)
 
     if EC > 24:
         jump s5b
@@ -574,6 +673,11 @@ label s4b:
 
     ion "[s4b_ion3]" 
 
+    if LC-tempLC > 6:
+        "You unlocked ⬢ (yes) and ♥ (no/not/none/never)!"
+
+    $ dummy = unlock(4, LC-tempLC)
+
     if EC > 24:
         jump s5b
     else:
@@ -637,6 +741,11 @@ label s5a:
     $ s5a_ion3 = f"{encode("Maybe you should have food next time.")}"
 
     ion "[s5a_ion3]" 
+
+    if LC-tempLC > 6:
+        "You unlocked ▬ (good/favourite/cool/awesome) and ¤ (bad/suck)!"
+
+    $ dummy = unlock(5, LC-tempLC)
 
     if EC > 30:
         jump s6b
@@ -702,6 +811,11 @@ label s5b:
 
     ion "[s5b_ion3]" 
 
+    if LC-tempLC > 6:
+        "You unlocked ▬ (good/favourite/cool/awesome) and ¤ (bad/suck)!"
+
+    $ dummy = unlock(5, LC-tempLC)
+
     if EC > 30:
         jump s6b
     else:
@@ -765,6 +879,11 @@ label s6a:
     $ s6a_ion3 = f"{encode("I guess that is my answer...")}"
 
     ion "[s6a_ion3]" 
+
+    if LC-tempLC > 6:
+        "You unlocked ✪ (like) and ♜ (food)!"
+
+    $ dummy = unlock(6, LC-tempLC)
 
     if EC > 44:
         jump s7c
@@ -832,6 +951,11 @@ label s6b:
 
     ion "[s6b_ion3]" 
 
+    if LC-tempLC > 6:
+        "You unlocked ✪ (like) and ♜ (food)!"
+
+    $ dummy = unlock(6, LC-tempLC)
+
     if EC > 44:
         jump s7c
     elif EC > 28:
@@ -897,6 +1021,11 @@ label s7a:
     $ s7a_ion3 = f"{encode("I do not like it.")}"
 
     ion "[s7a_ion3]" 
+
+    if LC-tempLC > 6:
+        "You unlocked ➽ (pretty) and ♛ (please)!"
+
+    $ dummy = unlock(7, LC-tempLC)
 
     if EC > 50:
         jump s8c
@@ -964,6 +1093,11 @@ label s7b:
 
     ion "[s7b_ion3]" 
 
+    if LC-tempLC > 6:
+        "You unlocked ➽ (pretty) and ♛ (please)!"
+
+    $ dummy = unlock(7, LC-tempLC)
+
     if EC > 50:
         jump s8c
     elif EC > 34:
@@ -1029,6 +1163,11 @@ label s7c:
     $ s7c_ion3 = f"{encode("I like it")}"
 
     ion "[s7c_ion3]" 
+
+    if LC-tempLC > 7:
+        "You unlocked ➽ (pretty) and ♛ (please)!"
+
+    $ dummy = unlock(1, LC-tempLC)
 
     if EC > 50:
         jump s8c
@@ -1096,6 +1235,11 @@ label s8a:
 
     ion "[s8a_ion3]" 
 
+    if LC-tempLC > 6:
+        "You unlocked ◢ (want) and Ѫ (ride)!"
+
+    $ dummy = unlock(8, LC-tempLC)
+
     if EC > 56:
         jump s9c
     elif EC > 40:
@@ -1161,6 +1305,11 @@ label s8b:
     $ s8b_ion3 = f"{encode("Who would want to go?")}"
 
     ion "[s8b_ion3]" 
+
+    if LC-tempLC > 6:
+        "You unlocked ◢ (want) and Ѫ (ride)!"
+
+    $ dummy = unlock(8, LC-tempLC)
 
     if EC > 56:
         jump s9c
@@ -1228,6 +1377,11 @@ label s8c:
     $ s8c_ion3 = f"{encode("I would want to go")}"
 
     ion "[s8c_ion3]"
+
+    if LC-tempLC > 6:
+        "You unlocked ◢ (want) and Ѫ (ride)!"
+
+    $ dummy = unlock(8, LC-tempLC)
 
     if EC > 56:
         jump s9c
