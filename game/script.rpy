@@ -518,7 +518,6 @@ label s2:
 
     scene black with fade
 
-
 label s3:
 
     scene station_kitchenercityhall with fade
@@ -1524,7 +1523,7 @@ label s8c:
 
     show ion smiling at center, size_close
 
-    $ s8c_ion1 = f"{encode("I am not doing things tonight")}"
+    $ s8c_ion1 = f"{encode("I am not doing anything tonight")}"
 
     $ tempLC = LC
     
@@ -1599,7 +1598,6 @@ label s8c:
         jump s9b
     else:
         jump s9a
-
 
 label s9a:
 
@@ -1746,7 +1744,6 @@ label s9b:
     else:
         jump badend
 
-
 label s9c:
 
     scene station_uw with fade
@@ -1781,7 +1778,10 @@ label s9c:
         "[s9c_op1_5]":
             $LC += 3
             $EC += 4
-       
+    
+    hide ion smiling 
+    show ion concerned at center, size_close
+
     $ s9c_ion2 = f"{encode("Well?")}"
 
     ion "[s9c_ion2]"
@@ -1808,6 +1808,9 @@ label s9c:
         "[s9c_op2_5]":
             $LC += 1
             $EC += 1
+    
+    hide ion concerned
+    show ion happy at center, size_close
 
     $ s9c_ion3 = f"{encode("Awesome!")}"
 
@@ -1820,9 +1823,10 @@ label s9c:
     else:
         jump badend
 
-
 label badend:
     $ ion_badend = "You will never ride me again."
+
+    scene black with fade
 
     ion "[ion_badend]"
 
@@ -1832,9 +1836,10 @@ label badend:
 
     return 0
 
-
 label neutralend:
     $ ion_badend = "Maybe some other time."
+
+    scene black with fade
 
     ion "[ion_badend]"
 
@@ -1844,11 +1849,14 @@ label neutralend:
 
     return 0
 
-
 label goodend:
     $ ion_goodend = "I would love to go out with you!"
 
     ion "[ion_goodend]"
+
+    hide ion smiling
+
+    scene endcard with fade
 
     "And now you can live happily ever after."
 
