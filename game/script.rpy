@@ -115,7 +115,7 @@ init python:
                 encoding.words.update({"ride": ("Ѫ", True, True)})
 
         
-        for i in range(int(newLC/2)):
+        for i in range(int(4*newLC/5)):
             toUnlock = list(encoding.words.keys())[randint(0, len(encoding.words)-1)]
             if (not encoding.words[toUnlock][2]) and (not encoding.words[toUnlock][1]):
                 encoding.words.update({toUnlock: (encoding.words[toUnlock][0], True, False)})
@@ -1200,7 +1200,7 @@ label s7b:
     $ s7b_op1_2 = f"{encode("No, you")}"
     $ s7b_op1_3 = f"{encode("New shirt")}"
     $ s7b_op1_4 = f"{encode("Thank you")}"
-    $ s7b_op1_5 = f"{encode("Poo")}"
+    $ s7b_op1_5 = f"{encode("Purple")}"
 
     menu: 
         "[s7b_op1_1]":
@@ -1284,7 +1284,7 @@ label s7c:
     $ s7c_op1_2 = f"{encode("No, you")}"
     $ s7c_op1_3 = f"{encode("New shirt")}"
     $ s7c_op1_4 = f"{encode("Thank you")}"
-    $ s7c_op1_5 = f"{encode("Poo")}"
+    $ s7c_op1_5 = f"{encode("Shirt")}"
 
     menu: 
         "[s7c_op1_1]":
@@ -1301,7 +1301,7 @@ label s7c:
             $EC += 5
         "[s7c_op1_5]":
             $LC += 1
-            $EC += 1
+            $EC += 3
        
     $ s7c_ion2 = f"{encode("Is it for me?")}"
 
@@ -1450,7 +1450,7 @@ label s8b:
 
     $ s8b_op1_1 = f"{encode("That is bad")}"
     $ s8b_op1_2 = f"{encode("Good")}"
-    $ s8b_op1_3 = f"{encode("Poo poo")}"
+    $ s8b_op1_3 = f"{encode("Purple poo")}"
     $ s8b_op1_4 = f"{encode("No")}"
     $ s8b_op1_5 = f"{encode("I like you")}"
 
@@ -1463,7 +1463,7 @@ label s8b:
             $EC += 1
         "[s8b_op1_3]":
             $LC += 3
-            $EC += 3
+            $EC += 2
         "[s8b_op1_4]":
             $LC += 2
             $EC += 1
@@ -1534,7 +1534,7 @@ label s8c:
 
     $ s8c_op1_1 = f"{encode("That is good")}"
     $ s8c_op1_2 = f"{encode("Bad")}"
-    $ s8c_op1_3 = f"{encode("Poo poo")}"
+    $ s8c_op1_3 = f"{encode("Purple shirt")}"
     $ s8c_op1_4 = f"{encode("Yes")}"
     $ s8c_op1_5 = f"{encode("I like you")}"
 
@@ -1547,7 +1547,7 @@ label s8c:
             $EC += 1
         "[s8c_op1_3]":
             $LC += 3
-            $EC += 1
+            $EC += 3
         "[s8c_op1_4]":
             $LC += 2
             $EC += 4
@@ -1717,7 +1717,7 @@ label s9b:
     $ s9b_op2_1 = f"{encode("Want to have food with me?")}"
     $ s9b_op2_2 = f"{encode("You are pretty")}"
     $ s9b_op2_3 = f"{encode("Please ride me?")}"
-    $ s9b_op2_4 = f"{encode("Poo shirt with me?")}"
+    $ s9b_op2_4 = f"{encode("Purple shirt with me?")}"
     $ s9b_op2_5 = f"{encode("Help")}"
 
     menu: 
@@ -1732,7 +1732,7 @@ label s9b:
             $EC += 3
         "[s9b_op2_4]":
             $LC += 2
-            $EC += 1
+            $EC += 2
         "[s9b_op2_5]":
             $LC += 1
             $EC += 1
@@ -1791,7 +1791,7 @@ label s9c:
     $ s9c_op2_1 = f"{encode("Want to have food with me?")}"
     $ s9c_op2_2 = f"{encode("You are pretty")}"
     $ s9c_op2_3 = f"{encode("Please ride me?")}"
-    $ s9c_op2_4 = f"{encode("Poo shirt with me?")}"
+    $ s9c_op2_4 = f"{encode("Purple shirt with me?")}"
     $ s9c_op2_5 = f"{encode("Help")}"
 
     menu: 
@@ -1806,7 +1806,7 @@ label s9c:
             $EC += 4
         "[s9c_op2_4]":
             $LC += 2
-            $EC += 1
+            $EC += 2
         "[s9c_op2_5]":
             $LC += 1
             $EC += 1
