@@ -114,15 +114,13 @@ init python:
 
                 encoding.words.update({"ride": ("Ѫ", True, True)})
 
-        else:
-            for i in range(newLC/2):
-                wordList = encoding.words.keys()
-                toUnlock = wordList[randint(0, wordList.len())]
-                toUnlockVal = encoding.words.get(toUnlock)
-                if (not toUnlockVal[2]) and (not toUnlockVal[1]):
-                    encoding.words.update({toUnlock: (toUnlockVal[0], True, False)})
-                else:
-                    i-= 1
+        
+        for i in range(int(newLC/2)):
+            toUnlock = list(encoding.words.keys())[randint(0, len(encoding.words))]
+            if (not encoding.words[toUnlock][2]) and (not encoding.words[toUnlock][1]):
+                encoding.words.update({toUnlock: (encoding.words[toUnlock][0], True, False)})
+            else:
+                i-= 1
 
 
 init python in encoding:
@@ -142,11 +140,13 @@ init python in encoding:
         "bad": ("¤", False, True),
         "suck": ("¤", False, True),
         "good": ("▬", False, True),
+        "nice": ("▬", False, True),
         "favourite": ("▬", False, True),
         "cool": ("▬", False, True),
         "awesome": ("▬", False, True),
         "purple": ("¢", False, False),
         "skies": ("#", False, False),
+        "shirt": ("#", False, False),
         "boo": ("*", False, False),
         "glad": ("▰", False, False),
         "to": ("▱", False, False),
@@ -179,6 +179,8 @@ init python in encoding:
         "rejected": ("◙", False, False),
         "is": ("Ʃ", False, False),
         "was": ("Ʃ", False, False),
+        "be": ("Ʃ", False, False),
+        "am": ("Ʃ", False, False),
         "with": ("◩", False, False),
         "anyone": ("◨", False, False),
         "friends": ("◭", False, False),
@@ -204,6 +206,7 @@ init python in encoding:
         "yes": ("⬢", False, True),
         "hard": ("⮝", False, True),
         "seem": ("⯂", False, False),
+        "look": ("⯂", False, False),
         "upset": ("⨂", False, False),
         "always": ("❖", False, False),
         "so": ("♚", False, False),
@@ -221,18 +224,23 @@ init python in encoding:
         "sometime": ("ᛥ", False, False),
         "ask": ("ᛃ", False, False),
         "somethings": ("ᚙ", False, False),
+        "something": ("ᚙ", False, False),
         "thing": ("ᚙ", False, False),
+        "anything": ("ᚙ", False, False),
         "answer": ("£", False, False),
         "new": ("§", False, False),
         "wear": ("©", False, False),
         "dress": ("©", False, False),
         "little": ("@", False, False),
+        "party": ("Ѣ", False, False),
         "ride": ("Ѫ", False, True),
         "question": ("ф", False, False),
         "help": ("ϴ", False, False),
         "busy": ("Ω", False, False),
         "Bus-chan": ("¶", False, False),
         "else": ("±", False, False),
+        "stop": ("ȹ", False, False),
+        "why": ("ɐ", False, False),
 
     }
 
