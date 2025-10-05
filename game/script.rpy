@@ -429,17 +429,17 @@ label stage1_1:
     
     ion "[s2_ion3]"
 
+    hide ion smiling
 
-    "If you guess correct words, you may get some new ones revealed."
+    scene black with fade
+
+    "If you guess correctly, you might be able to understand Ion-chan more and more."
 
     if LC-tempLC > 6:
         "You unlocked ▢ (you/your)!"
 
     $ dummy = unlock(1, LC-tempLC)
-
-    hide ion smiling
-
-    scene black with fade
+ 
 
 label s2:
 
@@ -505,18 +505,20 @@ label s2:
             $LC += 1
             $EC += 3
 
+    hide ion smiling
+    show ion happy2 at center, size_close
+
     $ s2_ion3 = f"{encode("I really want to hear more later")}"
 
     ion "[s2_ion3]" 
+
+    hide ion smiling
+    scene black with fade
 
     if LC-tempLC > 6:
         "You unlocked ▣ (today/day/tonight) and ✵ (more/really/better)!"
 
     $ dummy = unlock(2, LC-tempLC)
-
-    hide ion smiling
-
-    scene black with fade
 
 label s3:
 
@@ -554,7 +556,10 @@ label s3:
         "[s3_op1_5]":
             $LC += 4
             $EC += 2
-       
+    
+    hide ion smiling
+    show ion surprised2 at center, size_close
+
     $ s3_ion2 = f"{encode("Is it your favourite colour?")}"
 
     ion "[s3_ion2]" 
@@ -582,11 +587,14 @@ label s3:
             $LC += 3
             $EC += 3
 
+    hide ion surprised2
+    show ion sad at center, size_close
+
     $ s3_ion3 = f"{encode("This is hard")}"
 
     ion "[s3_ion3]" 
 
-    hide ion smiling
+    hide ion sad
 
     scene black with fade
 
@@ -608,7 +616,7 @@ label s4a:
 
     "6 stations left. Pay attention to which symbols are repeated."
 
-    show ion smiling at center, size_close
+    show ion surprised at center, size_close
 
     $ s4a_ion1 = f"{encode("You seem upset today")}"
     
@@ -636,7 +644,10 @@ label s4a:
         "[s4a_op1_5]":
             $LC += 4
             $EC += 5
-       
+    
+    hide ion surprised
+    show ion concerned at center, size_close
+
     $ s4a_ion2 = f"{encode("Are you always like this?")}"
 
     ion "[s4a_ion2]" 
@@ -664,11 +675,14 @@ label s4a:
             $LC += 4
             $EC += 5
 
+    hide ion concerned
+    show ion angry at center, size_close
+
     $ s4a_ion3 = f"{encode("Cool.")}"
 
     ion "[s4a_ion3]"
 
-    hide ion smiling
+    hide ion angry
 
     scene black with fade
 
@@ -717,7 +731,9 @@ label s4b:
         "[s4b_op1_5]":
             $LC += 4
             $EC += 3
-       
+    
+    hide ion smiling
+    show ion surprised at center, size_close
     $ s4b_ion2 = f"{encode("Are you always like this?")}"
 
     ion "[s4b_ion2]" 
@@ -745,6 +761,9 @@ label s4b:
             $LC += 4
             $EC += 3
 
+    hide ion surprised
+    show ion smiling at center, size_close
+
     $ s4b_ion3 = f"{encode("Cool.")}"
 
     ion "[s4b_ion3]" 
@@ -769,7 +788,7 @@ label s5a:
 
     "5 stations left. Ion-Chan's expressions can give clues."
 
-    show ion smiling at center, size_close
+    show ion surprised at center, size_close
 
     $ s5a_ion1 = f"{encode("Did you have food today?")}"
 
@@ -799,8 +818,11 @@ label s5a:
         "[s5a_op1_5]":
             $LC += 2
             $EC += 4
-       
+    
     $ s5a_ion2 = f"{encode("Is that why you are in a bad mood?")}"
+
+    hide ion surprised
+    show ion stern at center, size_close
 
     ion "[s5a_ion2]" 
 
@@ -831,7 +853,7 @@ label s5a:
 
     ion "[s5a_ion3]" 
 
-    hide ion smiling
+    hide ion stern
 
     scene black with fade
 
@@ -881,7 +903,7 @@ label s5b:
         "[s5b_op1_5]":
             $LC += 2
             $EC += 5
-       
+    
     $ s5b_ion2 = f"{encode("Was it your favourite?")}"
 
     ion "[s5b_ion2]" 
@@ -911,9 +933,12 @@ label s5b:
 
     $ s5b_ion3 = f"{encode("It would be good to have food sometime.")}"
 
+    hide ion smiling
+    show ion happy at center, size_close
+
     ion "[s5b_ion3]" 
 
-    hide ion smiling
+    hide ion happy
 
     scene black with fade
 
@@ -933,7 +958,7 @@ label s6a:
 
     "4 stations left. How do you think this going?."
 
-    show ion smiling at center, size_close
+    show ion surprised2 at center, size_close
 
     $ s6a_ion1 = f"{encode("I want to ask you something")}"
 
@@ -963,7 +988,10 @@ label s6a:
         "[s6a_op1_5]":
             $LC += 3
             $EC += 2
-       
+    
+    hide ion surprised2
+    show ion concerned at center, size_close
+
     $ s6a_ion2 = f"{encode("Do you not like me?")}"
 
     ion "[s6a_ion2]" 
@@ -991,11 +1019,14 @@ label s6a:
             $LC += 4
             $EC += 1
 
+    hide ion concerned
+    show ion sad at center, size_close
+
     $ s6a_ion3 = f"{encode("I guess that is my answer...")}"
 
     ion "[s6a_ion3]" 
 
-    hide ion smiling
+    hide ion sad
 
     scene black with fade
 
@@ -1017,7 +1048,7 @@ label s6b:
 
     "4 stations left. How do you think this going?."
 
-    show ion smiling at center, size_close
+    show ion surprised2 at center, size_close
 
     $ s6b_ion1 = f"{encode("I want to ask you something")}"
 
@@ -1047,7 +1078,9 @@ label s6b:
         "[s6b_op1_5]":
             $LC += 3
             $EC += 2
-       
+
+    hide ion surprised2
+    show ion concerned at center, size_close
     $ s6b_ion2 = f"{encode("Do you like me?")}"
 
     ion "[s6b_ion2]" 
@@ -1076,10 +1109,11 @@ label s6b:
             $EC += 5
 
     $ s6b_ion3 = f"{encode("I guess thats my answer...")}"
-
+    hide ion concerned
+    show ion happy2 at center, size_close
     ion "[s6b_ion3]" 
 
-    hide ion smiling
+    hide ion happy2
 
     scene black with fade
 
@@ -1101,7 +1135,7 @@ label s7a:
 
     "3 stations left. Some important words get permanently locked if you don't get them."
 
-    show ion smiling at center, size_close
+    show ion stern at center, size_close
 
     $ s7a_ion1 = f"{encode("You are not pretty")}"
 
@@ -1131,7 +1165,7 @@ label s7a:
         "[s7a_op1_5]":
             $LC += 1
             $EC += 3
-       
+    
     $ s7a_ion2 = f"{encode("You should not wear that.")}"
 
     ion "[s7a_ion2]" 
@@ -1158,7 +1192,8 @@ label s7a:
         "[s7a_op2_5]":
             $LC += 2
             $EC += 2
-
+    hide ion stern
+    show ion angry at center, size_close
     $ s7a_ion3 = f"{encode("I do not like it.")}"
 
     ion "[s7a_ion3]" 
@@ -1185,7 +1220,7 @@ label s7b:
 
     "3 stations left. Some important words get permanently locked if you don't get them."
 
-    show ion smiling at center, size_close
+    show ion surprised at center, size_close
 
     $ s7b_ion1 = f"{encode("You look okay today")}"
 
@@ -1215,7 +1250,10 @@ label s7b:
         "[s7b_op1_5]":
             $LC += 1
             $EC += 2
-       
+    
+    hide ion surprised
+    show ion stern at center, size_close
+
     $ s7b_ion2 = f"{encode("I think you should dress better")}"
 
     ion "[s7b_ion2]" 
@@ -1245,9 +1283,12 @@ label s7b:
 
     $ s7b_ion3 = f"{encode("Okay...")}"
 
+    hide ion stern
+    show ion sad at center, size_close
+
     ion "[s7b_ion3]" 
 
-    hide ion smiling
+    hide ion sad
 
     scene black with fade
 
@@ -1299,7 +1340,10 @@ label s7c:
         "[s7c_op1_5]":
             $LC += 1
             $EC += 3
-       
+    
+    hide ion smiling
+    show ion concerned at center, size_close
+
     $ s7c_ion2 = f"{encode("Is it for me?")}"
 
     ion "[s7c_ion2]" 
@@ -1326,12 +1370,13 @@ label s7c:
         "[s7c_op2_5]":
             $LC += 4
             $EC += 4
-
+    hide ion concerned
+    show ion happy at center, size_close
     $ s7c_ion3 = f"{encode("I like it")}"
 
     ion "[s7c_ion3]" 
 
-    hide ion smiling
+    hide ion happy
 
     scene black with fade
 
@@ -1353,7 +1398,7 @@ label s8a:
 
     "2 stations left. How Ion-Chan feels is very important now."
 
-    show ion smiling at center, size_close
+    show ion surprised at center, size_close
 
     $ s8a_ion1 = f"{encode("I am really busy tonight")}"
 
@@ -1383,7 +1428,10 @@ label s8a:
         "[s8a_op1_5]":
             $LC += 1
             $EC += 3
-       
+    
+    hide ion surprised
+    show ion concerned at center, size_close
+
     $ s8a_ion2 = f"{encode("You know, the party?")}"
 
     ion "[s8a_ion2]" 
@@ -1411,11 +1459,14 @@ label s8a:
             $LC += 5
             $EC += 4
 
+    hide ion concerned
+    show ion surprised at center, size_close
+
     $ s8a_ion3 = f"{encode("I do not want to go.")}"
 
     ion "[s8a_ion3]" 
 
-    hide ion smiling
+    hide ion surprised
 
     scene black with fade
 
@@ -1437,7 +1488,7 @@ label s8b:
 
     "2 stations left. How Ion-Chan feels is very important now."
 
-    show ion smiling at center, size_close
+    show ion surprised at center, size_close
 
     $ s8b_ion1 = f"{encode("I might be busy tonight")}"
 
@@ -1467,7 +1518,10 @@ label s8b:
         "[s8b_op1_5]":
             $LC += 1
             $EC += 4
-       
+    
+    hide ion surprised
+    show ion concerned at center, size_close
+
     $ s8b_ion2 = f"{encode("You know, the party.")}"
 
     ion "[s8b_ion2]" 
@@ -1499,7 +1553,7 @@ label s8b:
 
     ion "[s8b_ion3]" 
 
-    hide ion smiling
+    hide ion concerned
 
     scene black with fade
 
@@ -1551,7 +1605,10 @@ label s8c:
         "[s8c_op1_5]":
             $LC += 1
             $EC += 5
-       
+    
+    hide ion smiling
+    show ion happy at center, size_close
+
     $ s8c_ion2 = f"{encode("Bus-chan is handling the party")}"
 
     ion "[s8c_ion2]" 
@@ -1579,11 +1636,14 @@ label s8c:
             $LC += 4
             $EC += 4
 
+    hide ion happy
+    show ion happy2 at center, size_close
+
     $ s8c_ion3 = f"{encode("I would want to go")}"
 
     ion "[s8c_ion3]"
 
-    hide ion smiling
+    hide ion happy2
 
     scene black with fade
 
@@ -1633,8 +1693,11 @@ label s9a:
         "[s9a_op1_5]":
             $LC += 3
             $EC += 3
-       
-    $ s9a_ion2 = f"{encode("Well...")}"
+    
+    hide ion smiling 
+    show ion concerned at center, size_close
+
+    $ s9a_ion2 = f"{encode("Well?")}"
 
     ion "[s9a_ion2]" 
 
@@ -1660,6 +1723,9 @@ label s9a:
         "[s9a_op2_5]":
             $LC += 1
             $EC += 2
+
+    hide ion concerned 
+    show ion angry at center, size_close
 
     $ s9a_ion3 = f"{encode("Not cool")}"
 
@@ -1705,7 +1771,10 @@ label s9b:
         "[s9b_op1_5]":
             $LC += 3
             $EC += 3
-       
+    
+    hide ion smiling 
+    show ion concerned at center, size_close
+
     $ s9b_ion2 = f"{encode("Well?")}"
 
     ion "[s9b_ion2]"
@@ -1732,6 +1801,9 @@ label s9b:
         "[s9b_op2_5]":
             $LC += 1
             $EC += 1
+
+    hide ion concerned
+    show ion surprised2
 
     $ s9b_ion3 = f"{encode("Um")}"
 
