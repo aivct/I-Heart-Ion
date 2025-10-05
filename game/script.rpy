@@ -128,7 +128,7 @@ label stage1_1:
 
     "The problem is, you can never quite understand what she's saying."
 
-    "Because ION-chan only speaks Locomotish, not English."
+    "Because Ion-Chan only speaks Locomotish, not English."
 
     "Most of the time, you would be willing to just nod along with what she says."
 
@@ -237,7 +237,7 @@ label s2:
 
     menu: 
         "[s2_op1_1]":
-            $LC += 0
+            $LC += 5
             $EC += 4
         "[s2_op1_2]":
             $LC += 5
@@ -344,6 +344,11 @@ label s3:
 
     ion "[s3_ion3]" 
 
+    if EC > 18:
+        jump s4b
+    else:
+        jump s4a
+
 label s4a:
     $ s4a_ion1 = f"{encode("You seem upset today")}"
     
@@ -402,6 +407,11 @@ label s4a:
     $ s4a_ion3 = f"{encode("Cool.")}"
 
     ion "[s4a_ion3]" 
+
+    if EC > 24:
+        jump s5b
+    else:
+        jump s5a
 
 label s4b:
     $ s4b_ion1 = f"{encode("You are nice today")}"
@@ -462,6 +472,11 @@ label s4b:
 
     ion "[s4b_ion3]" 
 
+    if EC > 24:
+        jump s5b
+    else:
+        jump s5a
+
 label s5a:
     $ s5a_ion1 = f"{encode("Did you have food today?")}"
 
@@ -520,6 +535,11 @@ label s5a:
     $ s5a_ion3 = f"{encode("Maybe you should have food next time.")}"
 
     ion "[s5a_ion3]" 
+
+    if EC > 30:
+        jump s6b
+    else:
+        jump s6a
 
 label s5b:
     $ s5b_ion1 = f"{encode("Did you have food today?")}"
@@ -580,6 +600,11 @@ label s5b:
 
     ion "[s5b_ion3]" 
 
+    if EC > 30:
+        jump s6b
+    else:
+        jump s6a
+
 label s6a:
     $ s6a_ion1 = f"{encode("I want to ask you something")}"
     
@@ -638,6 +663,13 @@ label s6a:
     $ s6a_ion3 = f"{encode("I guess that is my answer...")}"
 
     ion "[s6a_ion3]" 
+
+    if EC > 44:
+        jump s7c
+    elif EC > 28:
+        jump s7b
+    else:
+        jump s7a
 
 label s6b:
     $ s6b_ion1 = f"{encode("I want to ask you something")}"
@@ -698,6 +730,13 @@ label s6b:
 
     ion "[s6b_ion3]" 
 
+    if EC > 44:
+        jump s7c
+    elif EC > 28:
+        jump s7b
+    else:
+        jump s7a
+
 label s7a:
     $ s7a_ion1 = f"{encode("You are not pretty")}"
     
@@ -756,6 +795,13 @@ label s7a:
     $ s7a_ion3 = f"{encode("I do not like it.")}"
 
     ion "[s7a_ion3]" 
+
+    if EC > 50:
+        jump s8c
+    elif EC > 34:
+        jump s8b
+    else:
+        jump s8a
 
 label s7b:
     $ s7b_ion1 = f"{encode("You look okay today")}"
@@ -816,6 +862,13 @@ label s7b:
 
     ion "[s7b_ion3]" 
 
+    if EC > 50:
+        jump s8c
+    elif EC > 34:
+        jump s8b
+    else:
+        jump s8a
+
 label s7c:
     $ s7c_ion1 = f"{encode("You look pretty today")}"
     
@@ -874,6 +927,13 @@ label s7c:
     $ s7c_ion3 = f"{encode("I like it")}"
 
     ion "[s7c_ion3]" 
+
+    if EC > 50:
+        jump s8c
+    elif EC > 34:
+        jump s8b
+    else:
+        jump s8a
 
 label s8a:
     $ s8a_ion1 = f"{encode("I am really busy tonight")}"
@@ -934,6 +994,13 @@ label s8a:
 
     ion "[s8a_ion3]" 
 
+    if EC > 56:
+        jump s9c
+    elif EC > 40:
+        jump s9b
+    else:
+        jump s9a
+
 label s8b:
     $ s8b_ion1 = f"{encode("I might be busy tonight")}"
     
@@ -992,6 +1059,13 @@ label s8b:
     $ s8b_ion3 = f"{encode("Who would want to go?")}"
 
     ion "[s8b_ion3]" 
+
+    if EC > 56:
+        jump s9c
+    elif EC > 40:
+        jump s9b
+    else:
+        jump s9a
 
 
 label s8c:
@@ -1053,6 +1127,13 @@ label s8c:
 
     ion "[s8c_ion3]"
 
+    if EC > 56:
+        jump s9c
+    elif EC > 40:
+        jump s9b
+    else:
+        jump s9a
+
 
 label s9a:
     $ s9a_ion1 = f"{encode("Your stop now. Anything else?")}"
@@ -1113,6 +1194,13 @@ label s9a:
 
     ion "[s9a_ion3]" 
 
+    if EC > 62:
+        jump goodend
+    elif EC > 46:
+        jump neutralend
+    else:
+        jump badend
+
 label s9b:
     $ s9b_ion1 = f"{encode("Your stop now. Anything else?")}"
     
@@ -1171,6 +1259,13 @@ label s9b:
     $ s9b_ion3 = f"{encode("Um")}"
 
     ion "[s9b_ion3]" 
+
+    if EC > 62:
+        jump goodend
+    elif EC > 46:
+        jump neutralend
+    else:
+        jump badend
 
 
 label s9c:
@@ -1232,6 +1327,13 @@ label s9c:
 
     ion "[s9c_ion3]"
 
+    if EC > 62:
+        jump goodend
+    elif EC > 46:
+        jump neutralend
+    else:
+        jump badend
+
 
 label badend:
     $ ion_badend = "You will never ride me again."
@@ -1241,6 +1343,8 @@ label badend:
     "Oops."
 
     "There goes my self-esteem."
+
+    return 0
 
 
 label neutralend:
@@ -1252,6 +1356,8 @@ label neutralend:
 
     "If only there was a way to do the afternoon all over again."
 
+    return 0
+
 
 label goodend:
     $ ion_goodend = "I would love to go out with you!"
@@ -1260,4 +1366,6 @@ label goodend:
 
     "And now you can live happily ever after."
 
-    "You and ION-chan will be happy for the rest of your days."
+    "You and Ion-Chan will be happy for the rest of your days."
+
+    return 0
