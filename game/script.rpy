@@ -7,8 +7,6 @@
 # TODO: Graphix and Backgrounds
 # TODO: Sound
 
-
-
 default LC = 0
 default EC = 0
 
