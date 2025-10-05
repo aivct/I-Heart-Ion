@@ -29,7 +29,7 @@ init python:
     # Turns a string into an array of tokens
     # TODO we must take care of punctuation at some point argh...; it temporarily works for now by ignoring punctuations but that is no longterm solution.
     def tokenize(text):
-        return text.translate(translator).split()
+        return text.translate(translator).lower().split()
 
     # Turns an array of tokens back into a string
     def detokenize(array):
@@ -37,14 +37,14 @@ init python:
 
     # Encodes each word based on if we know it or not
     def encodeWord(word):
-        if(encoding.words.get(word, ("■", False))[1]):
+        if(encoding.words.get(word, ("??", False))[1]):
             return word 
         else:
             return hashWord(word)
     
     # Turns a "word" into a ■ symbol
     def hashWord(word):
-        return encoding.words.get(word, ("■", False))[0]
+        return encoding.words.get(word, ("??", False))[0]
 
     def encode(string):
         tokens = tokenize(string)
@@ -56,10 +56,112 @@ init python:
 
 init python in encoding:
     words = {
-        "how": ("■", False)
-        ,"are": ("Ҧ", False)
-        ,"you": ("▢", False)
-        ,"today": ("▣", False)}
+        "how": ("■", False, False),
+        "are": ("Ҧ", False, False),
+        "were": ("Ҧ", False, False),
+        "you": ("▢", False, True),
+        "your": ("▢", False, True),
+        "today": ("▣", False, True),
+        "day": ("▣", False, True),
+        "tonight": ("▣", False, True),
+        "whatever": ("▤", False, False),
+        "maybe": ("▤", False, False),
+        "okay": ("▤", False, False),
+        "um": ("▤", False, False),
+        "bad": ("¤", False, True),
+        "suck": ("¤", False, True),
+        "good": ("▬", False, True),
+        "favourite": ("▬", False, True),
+        "cool": ("▬", False, True),
+        "awesome": ("▬", False, True),
+        "purple": ("¢", False, False),
+        "skies": ("#", False, False),
+        "boo": ("*", False, False),
+        "glad": ("▰", False, False),
+        "to": ("▱", False, False),
+        "hear": ("▲", False, False),
+        "that": ("△", False, False),
+        "thank": ("◆", False, False),
+        "and": ("◇", False, False),
+        "what": ("◈", False, False),
+        "poo": ("◉", False, False),
+        "police": ("◊", False, False),
+        "I": ("♠", False, True),
+        "my": ("♠", False, True),
+        "me": ("♠", False, True),
+        "who": ("♠", False, True),
+        "have": ("♣", False, False),
+        "go": ("◎", False, False),
+        "went": ("◎", False, False),
+        "now": ("●", False, False),
+        "did": ("◐", False, False),
+        "do": ("◐", False, False),
+        "handling": ("◐", False, False),
+        "the": ("◑", False, False),
+        "market": ("&", False, False),
+        "thought": ("◓", False, False),
+        "think": ("◓", False, False),
+        "guess": ("◓", False, False),
+        "know": ("◓", False, False),
+        "about": ("◘", False, False),
+        "rejected": ("◙", False, False),
+        "with": ("◩", False, False),
+        "anyone": ("◨", False, False),
+        "friends": ("◭", False, False),
+        "friend": ("◭", False, False),
+        "not": ("♥", False, True), 
+        "none": ("♥", False, True), 
+        "no": ("♥", False, True), 
+        "never": ("♥", False, True), 
+        "a": ("♦", False, False),
+        "date": ("✚", False, False),
+        "of": ("✜", False, False),
+        "business": ("✠", False, False),
+        "like": ("✪", False, True),
+        "want": ("◢", False, True),
+        "more": ("✵", False, True),
+        "really": ("✵", False, True),
+        "better": ("✵", False, True),
+        "later": ("❤", False, False),
+        "pretty": ("➽", False, True),
+        "it": ("⦿", False, False),
+        "got": ("⧒", False, False),
+        "colour": ("⧪", False, False),
+        "yes": ("⬢", False, True),
+        "hard": ("⮝", False, False),
+        "seem": ("⯂", False, False),
+        "upset": ("⨂", False, False),
+        "always": ("❖", False, False),
+        "so": ("♚", False, False),
+        "well": ("♚", False, False),
+        "please": ("♛", False, True),
+        "food": ("♜", False, True),
+        "in": ("♝", False, False),
+        "mood": ("♞", False, False),
+        "for": ("♟", False, False),
+        "all": ("⏏", False, False),
+        "should": ("ᛓ", False, False),
+        "would": ("ᛓ", False, False),
+        "next": ("ᛒ", False, False),
+        "time": ("ᛥ", False, False),
+        "sometime": ("ᛥ", False, False),
+        "ask": ("ᛃ", False, False),
+        "somethings": ("ᚙ", False, False),
+        "thing": ("ᚙ", False, False),
+        "answer": ("£", False, False),
+        "new": ("§", False, False),
+        "wear": ("©", False, False),
+        "dress": ("©", False, False),
+        "little": ("@", False, False),
+        "ride": ("Ѫ", False, True),
+        "question": ("ф", False, False),
+        "help": ("ϴ", False, False),
+        "busy": ("Ω", False, False),
+        "Bus-chan": ("¶", False, False),
+        "else": ("±", False, False),
+
+    }
+
 
 init python in dialogue:
     _constant = True
