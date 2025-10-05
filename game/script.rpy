@@ -166,7 +166,23 @@ init python in encoding:
 init python in dialogue:
     _constant = True
 
-define ion = Character("Ion-Chan")
+define ion = Character("Ion-chan")
+
+transform size_normal:
+    ysize 1000
+    fit "contain"
+
+transform size_close:
+    ysize 1200
+    fit "contain"
+
+transform size_far:
+    ysize 800
+    fit "contain"
+
+transform scenes:
+    zoom 0.5
+    fit "contain"
 
 # The game starts here.
 
@@ -176,13 +192,13 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    # scene bg room
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    # show eileen happy
 
     "It's been a long day and a longer term."
 
@@ -222,11 +238,18 @@ label start:
 
 label stage1_1:
 
-    "Ion-Chan"
+    scene station_kitchenermarket
+
+    show ion wave at center, size_close
+
+    "Ion-chan"
 
     $ s1_ion1 = f"{encode("How are you today?")}"
 
     ion "[s1_ion1]"
+
+    hide ion wave
+    show ion smiling at center, size_close
 
     "The problem is, you can never quite understand what she's saying."
 
@@ -279,7 +302,7 @@ label stage1_1:
 
     "Maybe if you keep trying to talk to her, you can figure out some words."
 
-    "You have 9 stops before U of W."
+    "You have 9 stops before reaching UW."
 
     "And then you will meet your fate."
 
@@ -324,9 +347,16 @@ label stage1_1:
     
     ion "[s2_ion3]"
 
+    hide ion smiling
 
+    scene black with fade
 
 label s2:
+
+    scene station_frederick with fade
+
+    show ion smiling at center, size_close
+
     $ s2_ion1 = f"{encode("What did you do today?")}"
     
     ion "[s2_ion1]" 
@@ -385,9 +415,17 @@ label s2:
 
     ion "[s2_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
 
 
 label s3:
+
+    scene station_kitchenercityhall with fade
+
+    show ion smiling at center, size_close
+
     $ s3_ion1 = f"{encode("Your shirt is cute")}"
     
     ion "[s3_ion1]"
@@ -446,12 +484,21 @@ label s3:
 
     ion "[s3_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 18:
         jump s4b
     else:
         jump s4a
 
 label s4a:
+
+    scene station_central with fade
+
+    show ion smiling at center, size_close
+
     $ s4a_ion1 = f"{encode("You seem upset today")}"
     
     ion "[s4a_ion1]" 
@@ -510,12 +557,20 @@ label s4a:
 
     ion "[s4a_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 24:
         jump s5b
     else:
         jump s5a
 
 label s4b:
+    scene station_central with fade
+
+    show ion smiling at center, size_close
+
     $ s4b_ion1 = f"{encode("You are nice today")}"
     
     ion "[s4b_ion1]" 
@@ -574,12 +629,21 @@ label s4b:
 
     ion "[s4b_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 24:
         jump s5b
     else:
         jump s5a
 
 label s5a:
+
+    scene station_grh with fade
+
+    show ion smiling at center, size_close
+
     $ s5a_ion1 = f"{encode("Did you have food today?")}"
 
     ion "[s5a_ion1]" 
@@ -638,12 +702,21 @@ label s5a:
 
     ion "[s5a_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 30:
         jump s6b
     else:
         jump s6a
 
 label s5b:
+
+    scene station_grh with fade
+
+    show ion smiling at center, size_close
+
     $ s5b_ion1 = f"{encode("Did you have food today?")}"
     
     ion "[s5b_ion1]" 
@@ -702,12 +775,21 @@ label s5b:
 
     ion "[s5b_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 30:
         jump s6b
     else:
         jump s6a
 
 label s6a:
+
+    scene station_allen with fade
+
+    show ion smiling at center, size_close
+
     $ s6a_ion1 = f"{encode("I want to ask you something")}"
     
     ion "[s6a_ion1]" 
@@ -766,6 +848,10 @@ label s6a:
 
     ion "[s6a_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 44:
         jump s7c
     elif EC > 28:
@@ -774,6 +860,11 @@ label s6a:
         jump s7a
 
 label s6b:
+
+    scene station_allen with fade
+
+    show ion smiling at center, size_close
+
     $ s6b_ion1 = f"{encode("I want to ask you something")}"
     
     ion "[s6b_ion1]" 
@@ -832,6 +923,10 @@ label s6b:
 
     ion "[s6b_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 44:
         jump s7c
     elif EC > 28:
@@ -840,6 +935,11 @@ label s6b:
         jump s7a
 
 label s7a:
+
+    scene station_waterloopublicsquare2 with fade
+
+    show ion smiling at center, size_close
+
     $ s7a_ion1 = f"{encode("You are not pretty")}"
     
     ion "[s7a_ion1]" 
@@ -898,6 +998,10 @@ label s7a:
 
     ion "[s7a_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 50:
         jump s8c
     elif EC > 34:
@@ -906,6 +1010,11 @@ label s7a:
         jump s8a
 
 label s7b:
+
+    scene station_waterloopublicsquare2 with fade
+
+    show ion smiling at center, size_close
+
     $ s7b_ion1 = f"{encode("You look okay today")}"
     
     ion "[s7b_ion1]" 
@@ -964,6 +1073,10 @@ label s7b:
 
     ion "[s7b_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 50:
         jump s8c
     elif EC > 34:
@@ -972,6 +1085,11 @@ label s7b:
         jump s8a
 
 label s7c:
+
+    scene station_waterloopublicsquare2 with fade
+
+    show ion smiling at center, size_close
+
     $ s7c_ion1 = f"{encode("You look pretty today")}"
     
     ion "[s7c_ion1]" 
@@ -1030,6 +1148,10 @@ label s7c:
 
     ion "[s7c_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 50:
         jump s8c
     elif EC > 34:
@@ -1038,6 +1160,11 @@ label s7c:
         jump s8a
 
 label s8a:
+
+    scene station_waterloolaurierpark with fade
+
+    show ion smiling at center, size_close
+
     $ s8a_ion1 = f"{encode("I am really busy tonight")}"
     
     ion "[s8a_ion1]" 
@@ -1096,6 +1223,10 @@ label s8a:
 
     ion "[s8a_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 56:
         jump s9c
     elif EC > 40:
@@ -1104,6 +1235,11 @@ label s8a:
         jump s9a
 
 label s8b:
+
+    scene station_waterloolaurierpark with fade
+
+    show ion smiling at center, size_close
+
     $ s8b_ion1 = f"{encode("I might be busy tonight")}"
     
     ion "[s8b_ion1]"
@@ -1162,6 +1298,10 @@ label s8b:
 
     ion "[s8b_ion3]" 
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 56:
         jump s9c
     elif EC > 40:
@@ -1169,8 +1309,12 @@ label s8b:
     else:
         jump s9a
 
-
 label s8c:
+
+    scene station_waterloolaurierpark with fade
+
+    show ion smiling at center, size_close
+
     $ s8c_ion1 = f"{encode("I am not doing things tonight")}"
     
     ion "[s8c_ion1]"
@@ -1229,6 +1373,10 @@ label s8c:
 
     ion "[s8c_ion3]"
 
+    hide ion smiling
+
+    scene black with fade
+
     if EC > 56:
         jump s9c
     elif EC > 40:
@@ -1238,6 +1386,11 @@ label s8c:
 
 
 label s9a:
+
+    scene station_uw with fade
+
+    show ion smiling at center, size_close
+
     $ s9a_ion1 = f"{encode("Your stop now. Anything else?")}"
     
     ion "[s9a_ion1]" 
@@ -1304,6 +1457,10 @@ label s9a:
         jump badend
 
 label s9b:
+    scene station_uw with fade
+
+    show ion smiling at center, size_close
+
     $ s9b_ion1 = f"{encode("Your stop now. Anything else?")}"
     
     ion "[s9b_ion1]" 
@@ -1371,6 +1528,11 @@ label s9b:
 
 
 label s9c:
+
+    scene station_uw with fade
+
+    show ion smiling at center, size_close
+
     $ s9c_ion1 = f"{encode("Your stop now. Anything to ask me?")}"
     
     ion "[s9c_ion1]" 
